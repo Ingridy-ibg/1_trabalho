@@ -23,7 +23,8 @@ $(PROJ_NAME): $(OBJETOS)
 # Dependências
 #
 
-src/lista.o: src/lista.c src/lista.h
+src/lista.o: src/lista.h
+	touch src/lista.o
 
 test/t_lista.o: test/t_lista.c src/lista.h Unity/src/unity.h
 
