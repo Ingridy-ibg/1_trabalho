@@ -492,7 +492,7 @@ int main(void)
     RUN_TEST(test_destroiLista_SemCallback);
 
     RUN_TEST(test_isEmptyLista);
-    
+
     RUN_TEST(test_buscaLista);
 
     RUN_TEST(test_Navegacao_e_Acesso);
