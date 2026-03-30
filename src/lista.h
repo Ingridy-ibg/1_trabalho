@@ -3,6 +3,7 @@
 
 #include <stdbool.h>
 
+
 /**
  * @typedef Item
  * @brief Ponteiro genérico para a informação armazenada em um nó da lista.
