@@ -1,1 +1,2 @@
-*.o
+*.otest/t_lista
+src/ted
