@@ -7,7 +7,8 @@ OBJETOS = src/lista.o
 CC      = gcc
 CFLAGS  = -ggdb -O0 -std=c99 -fstack-protector-all \
           -Werror=implicit-function-declaration \
-          -I./src -I./Unity/src
+          -I./src -I./Unity/src \
+          -DUNITY_INCLUDE_DOUBLE
 LDFLAGS = -O0
 
 # ─── Executável principal ───────────────────────────────────────
