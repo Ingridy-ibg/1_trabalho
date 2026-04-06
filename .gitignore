@@ -2,5 +2,5 @@
 *.otest/t_fila
 *.otest/t_poligono
 *.otest/t_retangulo
-
+*.otest/t_circulo
 src/ted
