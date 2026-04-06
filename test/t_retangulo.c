@@ -132,11 +132,34 @@ void test_setCores_MesmaCor(void)
     TEST_ASSERT_EQUAL_STRING_MESSAGE("blue",  getCorpRetangulo(R), "Cor do preenchimento deve permanecer blue.");
 }
 
-void test_setCores_RetanguloNulo(void)
+void test_setCores_UmaCorNula(void)
 {
-    // Nao deve crashar
-    setCoresRetangulo(NULL, "red", "green");
-    TEST_ASSERT_TRUE(true);
+    const char *corbOriginal = getCorbRetangulo(R);
+    const char *corpOriginal = getCorpRetangulo(R);
+
+    setCoresRetangulo(R, NULL, "yellow");
+    TEST_ASSERT_EQUAL_STRING_MESSAGE(corbOriginal, getCorbRetangulo(R), "Cor da borda nao deve mudar se corb=NULL.");
+    TEST_ASSERT_EQUAL_STRING_MESSAGE(corpOriginal, getCorpRetangulo(R), "Cor do preenchimento nao deve mudar se corb=NULL.");
+
+    setCoresRetangulo(R, "red", NULL);
+    TEST_ASSERT_EQUAL_STRING_MESSAGE(corbOriginal, getCorbRetangulo(R), "Cor da borda nao deve mudar se corp=NULL.");
+    TEST_ASSERT_EQUAL_STRING_MESSAGE(corpOriginal, getCorpRetangulo(R), "Cor do preenchimento nao deve mudar se corp=NULL.");
+}
+
+void test_StringsDuplicadas(void)
+{
+    char corb[] = "red";
+    char corp[] = "blue";
+    Retangulo r = criaRetangulo(10, 0.0, 0.0, 10.0, 10.0, corb, corp);
+
+    // Modificar as strings originais
+    corb[0] = 'g'; // "red" -> "ged"
+    corp[0] = 'y'; // "blue" -> "ylue"
+
+    TEST_ASSERT_EQUAL_STRING_MESSAGE("red", getCorbRetangulo(r), "Strings devem ser duplicadas, nao compartilhadas.");
+    TEST_ASSERT_EQUAL_STRING_MESSAGE("blue", getCorpRetangulo(r), "Strings devem ser duplicadas, nao compartilhadas.");
+
+    destroiRetangulo(r);
 }
 
 /* ─────────────────────────────────────────────
@@ -224,6 +247,16 @@ void test_dentroRegiao_RetanguloNulo(void)
         "NULL deve retornar false.");
 }
 
+void test_dentroRegiao_RegiaoZero(void)
+{
+    // Regiao com largura zero
+    TEST_ASSERT_FALSE_MESSAGE(dentroRegiaoRetangulo(R, 10.0, 20.0, 0.0, 50.0),
+        "Retangulo nao deve caber em regiao com w=0.");
+    // Regiao com altura zero
+    TEST_ASSERT_FALSE_MESSAGE(dentroRegiaoRetangulo(R, 10.0, 20.0, 100.0, 0.0),
+        "Retangulo nao deve caber em regiao com h=0.");
+}
+
 /* ─────────────────────────────────────────────
    main
    ───────────────────────────────────────────── */
@@ -247,7 +280,10 @@ int main(void)
 
     RUN_TEST(test_setCores_Valido);
     RUN_TEST(test_setCores_MesmaCor);
-    RUN_TEST(test_setCores_RetanguloNulo);
+    RUN_TEST(test_setCores_UmaCorNula);
+   
+
+    RUN_TEST(test_StringsDuplicadas);
 
     RUN_TEST(test_contemPonto_Dentro);
     RUN_TEST(test_contemPonto_NasBordas);
@@ -257,6 +293,7 @@ int main(void)
     RUN_TEST(test_dentroRegiao_TotalmenteContido);
     RUN_TEST(test_dentroRegiao_ExatamenteIgual);
     RUN_TEST(test_dentroRegiao_Fora);
+    RUN_TEST(test_dentroRegiao_RegiaoZero);
     RUN_TEST(test_dentroRegiao_RetanguloNulo);
 
     return UNITY_END();

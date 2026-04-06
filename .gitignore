@@ -1,4 +1,6 @@
 *.otest/t_lista
 *.otest/t_fila
 *.otest/t_poligono
+*.otest/t_retangulo
+
 src/ted

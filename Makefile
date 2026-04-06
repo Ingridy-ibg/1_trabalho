@@ -28,6 +28,8 @@ src/poligono.o: src/poligono.c src/poligono.h src/fila.h
 
 src/retangulo.o: src/retangulo.c src/retangulo.h
 
+src/circulo.o: src/circulo.c src/circulo.h
+
 test/t_lista.o: test/t_lista.c src/lista.h Unity/src/unity.h
 
 test/t_fila.o: test/t_fila.c src/fila.h Unity/src/unity.h
@@ -35,6 +37,8 @@ test/t_fila.o: test/t_fila.c src/fila.h Unity/src/unity.h
 test/t_poligono.o: test/t_poligono.c src/poligono.h Unity/src/unity.h
 
 test/t_retangulo.o: test/t_retangulo.c src/retangulo.h Unity/src/unity.h
+
+test/t_circulo.o: test/t_circulo.c src/circulo.h Unity/src/unity.h
 
 Unity/src/unity.o: Unity/src/unity.c Unity/src/unity.h
 
@@ -59,7 +63,12 @@ t_retangulo: test/t_retangulo.o src/retangulo.o Unity/src/unity.o
 	    -o test/t_retangulo
 	./test/t_retangulo
 
-tstall: t_lista t_fila t_poligono t_retangulo
+t_circulo: test/t_circulo.o src/circulo.o Unity/src/unity.o
+	$(CC) $(LDFLAGS) test/t_circulo.o src/circulo.o Unity/src/unity.o \
+	    -o test/t_circulo
+	./test/t_circulo
+
+tstall: t_lista t_fila t_poligono t_retangulo t_circulo
 
 # ─── Utilitários ─────────────────────────────────────────────────
 clean:
@@ -68,6 +77,7 @@ clean:
 	      test/t_lista.o test/t_fila.o test/t_poligono.o \
 	      test/t_lista test/t_fila test/t_poligono \
 		  test/t_retangulo test/t_retangulo\
+		  test/t_circulo test/t_circulo\
 	      src/$(PROJ_NAME)
 
 run: $(PROJ_NAME)
