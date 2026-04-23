@@ -46,52 +46,102 @@ test/t_linha.o: test/t_linha.c src/linha.h Unity/src/unity.h
 
 Unity/src/unity.o: Unity/src/unity.c Unity/src/unity.h
 
+src/texto.o: src/texto.c src/texto.h
+
+test/t_texto.o: test/t_texto.c src/texto.h Unity/src/unity.h
+
+src/formas.o: src/formas.c src/formas.h
+
+src/main.o: src/main.c src/main.h src/formas.h
+
+src/processadorGEO.o: src/processadorGEO.c src/processadorGEO.h src/formas.h src/texto.h
+
+src/processadorQRY.o: src/processadorQRY.c src/processadorQRY.h src/formas.h src/poligono.h
+
+test/t_formas.o: test/t_formas.c src/formas.h src/circulo.h src/retangulo.h src/linha.h src/texto.h Unity/src/unity.h
+
+test/t_main.o: test/t_main.c src/main.h src/formas.h src/poligono.h src/circulo.h src/retangulo.h src/linha.h src/texto.h Unity/src/unity.h
+
+test/t_processadorGEO.o: test/t_processadorGEO.c src/processadorGEO.h src/formas.h src/texto.h Unity/src/unity.h
+
+test/t_processadorQRY.o: test/t_processadorQRY.c src/processadorQRY.h src/formas.h Unity/src/unity.h
+
 # ─── Testes unitários ────────────────────────────────────────────
 t_lista: test/t_lista.o src/lista.o Unity/src/unity.o
 	$(CC) $(LDFLAGS) test/t_lista.o src/lista.o Unity/src/unity.o \
-	    -o test/t_lista
+		-o test/t_lista
 	./test/t_lista
 
 t_fila: test/t_fila.o src/fila.o Unity/src/unity.o
 	$(CC) $(LDFLAGS) test/t_fila.o src/fila.o Unity/src/unity.o \
-	    -o test/t_fila
+		-o test/t_fila
 	./test/t_fila
 
 t_poligono: test/t_poligono.o src/poligono.o src/fila.o Unity/src/unity.o
 	$(CC) $(LDFLAGS) test/t_poligono.o src/poligono.o src/fila.o \
-	    Unity/src/unity.o -o test/t_poligono
+		Unity/src/unity.o -o test/t_poligono
 	./test/t_poligono
 
 t_retangulo: test/t_retangulo.o src/retangulo.o Unity/src/unity.o
 	$(CC) $(LDFLAGS) test/t_retangulo.o src/retangulo.o Unity/src/unity.o \
-	    -o test/t_retangulo
+		-o test/t_retangulo
 	./test/t_retangulo
 
 t_circulo: test/t_circulo.o src/circulo.o Unity/src/unity.o
-	$(CC) $(LDFLAGS) test/t_circulo.o src/circulo.o Unity/src/unity.o \
-	    -o test/t_circulo
+	$(CC) $(LDFLAGS) test/t_circulo.o src/circulo.o Unity/src/unity.o -lm \
+		-o test/t_circulo
 	./test/t_circulo
 
 t_linha: test/t_linha.o src/linha.o Unity/src/unity.o
 	$(CC) $(LDFLAGS) test/t_linha.o src/linha.o Unity/src/unity.o -lm \
-	    -o test/t_linha
+		-o test/t_linha
 	./test/t_linha
 
-tstall: t_lista t_fila t_poligono t_retangulo t_circulo t_linha
+t_texto: test/t_texto.o src/texto.o Unity/src/unity.o
+	$(CC) $(LDFLAGS) test/t_texto.o src/texto.o Unity/src/unity.o -lm \
+		-o test/t_texto
+	./test/t_texto
+
+t_formas: test/t_formas.o src/formas.o src/circulo.o src/retangulo.o src/linha.o src/texto.o src/lista.o Unity/src/unity.o
+	$(CC) $(LDFLAGS) test/t_formas.o src/formas.o src/circulo.o \
+		src/retangulo.o src/linha.o src/texto.o src/lista.o Unity/src/unity.o -lm \
+		-o test/t_formas
+	./test/t_formas
+
+t_main: test/t_main.o src/main.o src/formas.o src/poligono.o src/circulo.o src/retangulo.o src/linha.o src/texto.o src/fila.o src/lista.o Unity/src/unity.o
+	$(CC) $(LDFLAGS) test/t_main.o src/main.o src/formas.o src/poligono.o \
+		src/circulo.o src/retangulo.o src/linha.o src/texto.o src/fila.o src/lista.o \
+		Unity/src/unity.o -lm -o test/t_main
+	./test/t_main
+
+t_processadorGEO: test/t_processadorGEO.o src/processadorGEO.o src/formas.o src/circulo.o src/retangulo.o src/linha.o src/texto.o src/lista.o Unity/src/unity.o
+	$(CC) $(LDFLAGS) test/t_processadorGEO.o src/processadorGEO.o src/formas.o \
+		src/circulo.o src/retangulo.o src/linha.o src/texto.o src/lista.o Unity/src/unity.o -lm \
+		-o test/t_processadorGEO
+	./test/t_processadorGEO
+
+
+t_processadorQRY: test/t_processadorQRY.o src/processadorQRY.o src/formas.o src/poligono.o src/circulo.o src/retangulo.o src/linha.o src/texto.o src/fila.o src/lista.o Unity/src/unity.o
+	$(CC) $(LDFLAGS) test/t_processadorQRY.o src/processadorQRY.o src/formas.o src/poligono.o \
+		src/circulo.o src/retangulo.o src/linha.o src/texto.o src/fila.o src/lista.o \
+		Unity/src/unity.o -lm -o test/t_processadorQRY
+	./test/t_processadorQRY
+
+# Adicionado t_processadorQRY na lista de todos os testes
+tstall: t_lista t_fila t_poligono t_retangulo t_circulo t_linha t_texto t_formas t_main t_processadorGEO t_processadorQRY
 
 # ─── Utilitários ─────────────────────────────────────────────────
 clean:
-	rm -f src/lista.o src/fila.o src/poligono.o \
-	      Unity/src/unity.o \
-	      test/t_lista.o test/t_fila.o test/t_poligono.o \
-		test/t_retangulo.o test/t_circulo.o test/t_linha.o \
-	      test/t_lista test/t_fila test/t_poligono \
-		  test/t_retangulo test/t_retangulo\
-		  test/t_circulo test/t_circulo\
-		  test/t_linha test/t_linha\
-
-		  
-	      src/$(PROJ_NAME)
+	rm -f src/lista.o src/fila.o src/poligono.o src/retangulo.o \
+		  src/circulo.o src/linha.o src/texto.o src/formas.o src/main.o \
+		  src/processadorGEO.o src/processadorQRY.o Unity/src/unity.o \
+		  test/t_lista.o test/t_fila.o test/t_poligono.o \
+		  test/t_retangulo.o test/t_circulo.o test/t_linha.o test/t_texto.o test/t_formas.o \
+		  test/t_main.o test/t_processadorGEO.o test/t_processadorQRY.o \
+		  test/t_lista test/t_fila test/t_poligono \
+		  test/t_retangulo test/t_circulo test/t_linha test/t_texto test/t_formas \
+		  test/t_main test/t_processadorGEO test/t_processadorQRY \
+		  src/$(PROJ_NAME)
 
 run: $(PROJ_NAME)
 	./src/$(PROJ_NAME)

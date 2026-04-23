@@ -112,8 +112,7 @@ bool isEmptyLista(Lista L) {
 }
 
 Item getLista(Lista L, Posic p) {
-    if (L == NULL || p == NULL) return NULL;  
-    (void)L;
+    if (L == NULL || p == NULL) return NULL;
     return ((No *)p)->info;
 }
 
@@ -164,6 +163,7 @@ Posic buscaLista(Lista L, Item info) {
 
 
 void destroiLista(Lista L, void (*destroiItem)(Item)) {
+    if (L == NULL) return;
     ListaStruct *ls = (ListaStruct *)L;
     No *cur = ls->cabeca->prox;
 
