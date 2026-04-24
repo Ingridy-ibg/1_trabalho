@@ -1,0 +1,5 @@
+# t01.qry — seleciona formas, move e remove
+sel 0.0 0.0 250.0 250.0
+mcs 10.0 10.0 purple orange
+sel 120.0 50.0 100.0 100.0
+dels

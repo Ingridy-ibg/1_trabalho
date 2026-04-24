@@ -16,6 +16,7 @@
 #include "retangulo.h"
 #include "linha.h"
 #include "texto.h"
+#include "svg.h"
 
 /* ─────────────────────────────────────────────
    Constantes internas
@@ -23,54 +24,6 @@
 
 #define MAX_LINHA    4096
 #define MAX_REMOVIDAS 4096   /* limite prático de formas selecionadas */
-
-/* ─────────────────────────────────────────────
-   SVG inline helpers
-   (notas de coordenadas: o plano .geo tem Y crescendo para cima;
-    o SVG tem Y crescendo para baixo — a inversão fica no svg.c;
-    aqui emitimos as tags brutas recebendo coordenadas já em SVG)
-   ───────────────────────────────────────────── */
-
-/**
- * Emite a região de seleção: retângulo vermelho pontilhado.
- * x, y, w, h já estão em coordenadas SVG.
- */
-static void svg_regiao_selecao(FILE *svg, double x, double y,
-                                double w, double h) {
-    fprintf(svg,
-        "  <!-- sel -->\n"
-        "  <rect x=\"%.4f\" y=\"%.4f\" width=\"%.4f\" height=\"%.4f\""
-        " stroke=\"red\" fill=\"none\""
-        " stroke-dasharray=\"5,3\" stroke-width=\"1.5\"/>\n",
-        x, y, w, h);
-}
-
-/**
- * Emite um anel vermelho em torno da âncora de uma figura selecionada.
- * ax, ay já estão em coordenadas SVG.
- */
-static void svg_anelo_selecao(FILE *svg, double ax, double ay) {
-    fprintf(svg,
-        "  <circle cx=\"%.4f\" cy=\"%.4f\" r=\"6\""
-        " stroke=\"red\" fill=\"none\" stroke-width=\"2\"/>\n",
-        ax, ay);
-}
-
-/**
- * Emite um pequeno "x" vermelho na âncora de uma figura removida.
- * ax, ay já estão em coordenadas SVG.
- */
-static void svg_x_remocao(FILE *svg, double ax, double ay) {
-    double d = 5.0;
-    fprintf(svg,
-        "  <!-- dels -->\n"
-        "  <line x1=\"%.4f\" y1=\"%.4f\" x2=\"%.4f\" y2=\"%.4f\""
-        " stroke=\"red\" stroke-width=\"1.5\"/>\n"
-        "  <line x1=\"%.4f\" y1=\"%.4f\" x2=\"%.4f\" y2=\"%.4f\""
-        " stroke=\"red\" stroke-width=\"1.5\"/>\n",
-        ax-d, ay-d, ax+d, ay+d,
-        ax+d, ay-d, ax-d, ay+d);
-}
 
 /* ─────────────────────────────────────────────
    TXT helpers — formato dos relatórios
@@ -281,21 +234,7 @@ static void cmd_sel(char *linha, Formas fs, FILE *svg, FILE *txt) {
     if (sscanf(linha, "%*s %lf %lf %lf %lf", &x, &y, &w, &h) != 4) return;
 
     selecionaFormas(fs, x, y, w, h);
-
-    /* SVG: região pontilhada (coordenadas brutas — svg.c ajustará Y) */
-    svg_regiao_selecao(svg, x, y, w, h);
-
-    /* SVG: anel em cada âncora selecionada */
-    PosicForma p = getPrimeiraForma(fs);
-    while (p != NULL) {
-        if (isFormaSelecionada(fs, p)) {
-            double ax, ay;
-            if (getAncoraPorId(fs, getIdForma(fs, p), &ax, &ay))
-                svg_anelo_selecao(svg, ax, ay);
-        }
-        p = getProximaForma(fs, p);
-    }
-
+    svgSel(svg, fs, x, y, w, h);
     txt_sel(txt, fs);
 }
 
@@ -328,7 +267,7 @@ static void cmd_dels(Formas fs, FILE *svg, FILE *txt) {
 
     /* SVG: "x" nas posições das âncoras removidas */
     for (int i = 0; i < n; i++)
-        svg_x_remocao(svg, axs[i], ays[i]);
+        svgDels(svg, axs[i], ays[i]);
 }
 
 /* mcs dx dy corb corp */

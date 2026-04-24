@@ -1,0 +1,14 @@
+inp 2 8: (60.0000, 80.0000) linha
+inp 2 9: (60.0000, 80.0000) linha
+inp 2 10: (200.0000, 150.0000) linha
+rmp 2: (60.0000, 80.0000)
+1 retangulo
+2 texto
+3 texto
+4 texto
+5 circulo
+6 circulo
+7 circulo
+8 linha
+9 linha
+10 linha
