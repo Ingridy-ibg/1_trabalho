@@ -1,0 +1,96 @@
+10 linha
+11 linha
+12 linha
+13 linha
+14 linha
+15 linha
+16 linha
+17 linha
+18 linha
+19 linha
+20 linha
+21 linha
+22 linha
+23 linha
+24 linha
+25 linha
+26 linha
+27 linha
+28 linha
+29 linha
+30 linha
+31 linha
+32 linha
+33 linha
+34 linha
+35 linha
+36 linha
+37 linha
+38 linha
+39 linha
+40 linha
+41 linha
+42 linha
+43 linha
+44 linha
+45 linha
+46 linha
+47 linha
+48 linha
+49 linha
+50 linha
+51 linha
+52 linha
+53 linha
+54 linha
+55 linha
+56 linha
+57 linha
+10 linha x1=166.0000 y1=6.0000 x2=174.0000 y2=10.0000 cor=blue
+11 linha x1=21.0000 y1=42.0000 x2=23.0000 y2=76.0000 cor=blue
+12 linha x1=66.0000 y1=42.0000 x2=64.0000 y2=79.0000 cor=blue
+13 linha x1=21.0000 y1=83.0000 x2=63.0000 y2=83.0000 cor=blue
+14 linha x1=24.0000 y1=38.0000 x2=60.0000 y2=39.0000 cor=blue
+15 linha x1=22.0000 y1=37.0000 x2=40.0000 y2=28.0000 cor=blue
+16 linha x1=43.0000 y1=27.0000 x2=82.0000 y2=27.0000 cor=blue
+17 linha x1=82.0000 y1=29.0000 x2=83.0000 y2=70.0000 cor=blue
+18 linha x1=65.0000 y1=38.0000 x2=83.0000 y2=27.0000 cor=blue
+19 linha x1=65.0000 y1=82.0000 x2=81.0000 y2=72.0000 cor=blue
+20 linha x1=42.0000 y1=27.0000 x2=41.0000 y2=72.0000 cor=blue
+21 linha x1=41.0000 y1=71.0000 x2=83.0000 y2=72.0000 cor=blue
+22 linha x1=26.0000 y1=46.0000 x2=26.0000 y2=57.0000 cor=blue
+23 linha x1=27.0000 y1=56.0000 x2=37.0000 y2=57.0000 cor=blue
+24 linha x1=37.0000 y1=46.0000 x2=37.0000 y2=55.0000 cor=blue
+25 linha x1=25.0000 y1=45.0000 x2=37.0000 y2=45.0000 cor=blue
+26 linha x1=45.0000 y1=58.0000 x2=45.0000 y2=80.0000 cor=blue
+27 linha x1=45.0000 y1=55.0000 x2=57.0000 y2=55.0000 cor=blue
+28 linha x1=57.0000 y1=58.0000 x2=57.0000 y2=80.0000 cor=blue
+29 linha x1=144.0000 y1=71.0000 x2=166.0000 y2=82.0000 cor=blue
+30 linha x1=161.0000 y1=74.0000 x2=174.0000 y2=105.0000 cor=blue
+31 linha x1=172.0000 y1=92.0000 x2=158.0000 y2=118.0000 cor=blue
+32 linha x1=169.0000 y1=113.0000 x2=127.0000 y2=116.0000 cor=blue
+33 linha x1=107.0000 y1=91.0000 x2=127.0000 y2=123.0000 cor=blue
+34 linha x1=104.0000 y1=104.0000 x2=135.0000 y2=69.0000 cor=blue
+35 linha x1=116.0000 y1=37.0000 x2=116.0000 y2=70.0000 cor=blue
+36 linha x1=119.0000 y1=35.0000 x2=137.0000 y2=22.0000 cor=blue
+37 linha x1=116.0000 y1=16.0000 x2=117.0000 y2=35.0000 cor=blue
+38 linha x1=101.0000 y1=24.0000 x2=114.0000 y2=35.0000 cor=blue
+39 linha x1=105.0000 y1=17.0000 x2=117.0000 y2=25.0000 cor=blue
+40 linha x1=121.0000 y1=26.0000 x2=128.0000 y2=18.0000 cor=blue
+41 linha x1=121.0000 y1=18.0000 x2=129.0000 y2=7.0000 cor=blue
+42 linha x1=176.0000 y1=30.0000 x2=176.0000 y2=64.0000 cor=blue
+43 linha x1=179.0000 y1=28.0000 x2=197.0000 y2=16.0000 cor=blue
+44 linha x1=176.0000 y1=29.0000 x2=179.0000 y2=9.0000 cor=blue
+45 linha x1=161.0000 y1=17.0000 x2=173.0000 y2=28.0000 cor=blue
+46 linha x1=165.0000 y1=10.0000 x2=177.0000 y2=19.0000 cor=blue
+47 linha x1=180.0000 y1=12.0000 x2=187.0000 y2=5.0000 cor=blue
+48 linha x1=44.0000 y1=85.0000 x2=29.0000 y2=96.0000 cor=blue
+49 linha x1=26.0000 y1=96.0000 x2=8.0000 y2=124.0000 cor=blue
+50 linha x1=57.0000 y1=86.0000 x2=41.0000 y2=98.0000 cor=blue
+51 linha x1=39.0000 y1=98.0000 x2=21.0000 y2=126.0000 cor=blue
+52 linha x1=23.0000 y1=81.0000 x2=39.0000 y2=72.0000 cor=blue
+53 linha x1=182.0000 y1=18.0000 x2=190.0000 y2=7.0000 cor=blue
+54 linha x1=21.0000 y1=38.0000 x2=40.0000 y2=13.0000 cor=blue
+55 linha x1=38.0000 y1=10.0000 x2=73.0000 y2=45.0000 cor=blue
+56 linha x1=70.0000 y1=6.0000 x2=33.0000 y2=13.0000 cor=blue
+57 linha x1=59.0000 y1=1.0000 x2=87.0000 y2=28.0000 cor=blue

@@ -121,4 +121,6 @@ void svgSel(FILE *f, Formas fs, double x, double y, double w, double h);
  */
 void svgDels(FILE *f, double ax, double ay);
 
+void svgEscreveForma(FILE *f, Formas fs, int id);
+
 #endif /* SVG_H */

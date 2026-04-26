@@ -1,6 +1,0 @@
-1 circulo
-2 retangulo
-3 linha
-4 texto
-4 texto
-4 texto x=160.0000 y=70.0000 ancora=i txto=Estrutura de Dados

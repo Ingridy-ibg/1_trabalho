@@ -144,6 +144,7 @@ t_svg: test/t_svg.o src/svg.o src/formas.o src/circulo.o src/retangulo.o \
 
 tstall: t_lista t_fila t_poligono t_retangulo t_circulo t_linha t_texto t_formas t_processadorGEO t_processadorQRY t_svg
 
+
 # ─── Utilitários ─────────────────────────────────────────────────
 clean:
 	rm -f src/lista.o src/fila.o src/poligono.o src/retangulo.o \
@@ -157,5 +158,28 @@ clean:
 		  test/t_processadorGEO test/t_processadorQRY test/t_svg \
 		  src/$(PROJ_NAME)
 
+rodatestes: ted
+	@mkdir -p saida
+	@count=0; \
+	for geo in $$(find testes/ -name "*.geo"); do \
+	    dir=$$(dirname $$geo); \
+	    stem=$$(basename $$geo .geo); \
+	    qrydir=$$dir/$$stem; \
+	    if [ -d "$$qrydir" ]; then \
+	        for qry in $$qrydir/*.qry; do \
+	            qrystem=$$(basename $$qry .qry); \
+	            echo "[GEO+QRY] $$stem + $$qrystem"; \
+	            ./src/ted -e $$dir -f $$stem.geo -q $$stem/$$qrystem.qry -o ./saida; \
+	            count=$$((count + 1)); \
+	        done; \
+	    else \
+	        echo "[GEO]     $$stem"; \
+	        ./src/ted -e $$dir -f $$stem.geo -o ./saida; \
+	        count=$$((count + 1)); \
+	    fi; \
+	done; \
+	echo ""; \
+	echo "$$count arquivo(s) processado(s). Gerados em saida/:"; \
+	ls saida/
 run: $(PROJ_NAME)
 	./src/$(PROJ_NAME)

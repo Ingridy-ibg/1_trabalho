@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="219.0000" height="155.0000" viewBox="-7.0000 -14.0000 219.0000 155.0000">
+<g id="fig">
+   <line id="10" x1="166.000000" y1="6.000000" x2="174.000000" y2="10.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="11" x1="21.000000" y1="42.000000" x2="23.000000" y2="76.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="12" x1="66.000000" y1="42.000000" x2="64.000000" y2="79.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="13" x1="21.000000" y1="83.000000" x2="63.000000" y2="83.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="14" x1="24.000000" y1="38.000000" x2="60.000000" y2="39.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="15" x1="22.000000" y1="37.000000" x2="40.000000" y2="28.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="16" x1="43.000000" y1="27.000000" x2="82.000000" y2="27.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="17" x1="82.000000" y1="29.000000" x2="83.000000" y2="70.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="18" x1="65.000000" y1="38.000000" x2="83.000000" y2="27.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="19" x1="65.000000" y1="82.000000" x2="81.000000" y2="72.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="20" x1="42.000000" y1="27.000000" x2="41.000000" y2="72.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="21" x1="41.000000" y1="71.000000" x2="83.000000" y2="72.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="22" x1="26.000000" y1="46.000000" x2="26.000000" y2="57.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="23" x1="27.000000" y1="56.000000" x2="37.000000" y2="57.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="24" x1="37.000000" y1="46.000000" x2="37.000000" y2="55.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="25" x1="25.000000" y1="45.000000" x2="37.000000" y2="45.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="26" x1="45.000000" y1="58.000000" x2="45.000000" y2="80.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="27" x1="45.000000" y1="55.000000" x2="57.000000" y2="55.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="28" x1="57.000000" y1="58.000000" x2="57.000000" y2="80.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="29" x1="144.000000" y1="71.000000" x2="166.000000" y2="82.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="30" x1="161.000000" y1="74.000000" x2="174.000000" y2="105.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="31" x1="172.000000" y1="92.000000" x2="158.000000" y2="118.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="32" x1="169.000000" y1="113.000000" x2="127.000000" y2="116.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="33" x1="107.000000" y1="91.000000" x2="127.000000" y2="123.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="34" x1="104.000000" y1="104.000000" x2="135.000000" y2="69.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="35" x1="116.000000" y1="37.000000" x2="116.000000" y2="70.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="36" x1="119.000000" y1="35.000000" x2="137.000000" y2="22.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="37" x1="116.000000" y1="16.000000" x2="117.000000" y2="35.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="38" x1="101.000000" y1="24.000000" x2="114.000000" y2="35.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="39" x1="105.000000" y1="17.000000" x2="117.000000" y2="25.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="40" x1="121.000000" y1="26.000000" x2="128.000000" y2="18.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="41" x1="121.000000" y1="18.000000" x2="129.000000" y2="7.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="42" x1="176.000000" y1="30.000000" x2="176.000000" y2="64.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="43" x1="179.000000" y1="28.000000" x2="197.000000" y2="16.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="44" x1="176.000000" y1="29.000000" x2="179.000000" y2="9.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="45" x1="161.000000" y1="17.000000" x2="173.000000" y2="28.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="46" x1="165.000000" y1="10.000000" x2="177.000000" y2="19.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="47" x1="180.000000" y1="12.000000" x2="187.000000" y2="5.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="48" x1="44.000000" y1="85.000000" x2="29.000000" y2="96.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="49" x1="26.000000" y1="96.000000" x2="8.000000" y2="124.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="50" x1="57.000000" y1="86.000000" x2="41.000000" y2="98.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="51" x1="39.000000" y1="98.000000" x2="21.000000" y2="126.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="52" x1="23.000000" y1="81.000000" x2="39.000000" y2="72.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="53" x1="182.000000" y1="18.000000" x2="190.000000" y2="7.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="54" x1="21.000000" y1="38.000000" x2="40.000000" y2="13.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="55" x1="38.000000" y1="10.000000" x2="73.000000" y2="45.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="56" x1="70.000000" y1="6.000000" x2="33.000000" y2="13.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="57" x1="59.000000" y1="1.000000" x2="87.000000" y2="28.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <!-- sel -->
+   <rect x="7.5000" y="0.5000" width="191.0000" height="127.0000" stroke="red" fill="transparent" stroke-dasharray="5,3" stroke-width="1.5"/>
+   <circle cx="166.0000" cy="6.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="21.0000" cy="42.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="64.0000" cy="79.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="21.0000" cy="83.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="24.0000" cy="38.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="22.0000" cy="37.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="43.0000" cy="27.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="82.0000" cy="29.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="65.0000" cy="38.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="65.0000" cy="82.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="41.0000" cy="72.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="41.0000" cy="71.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="26.0000" cy="46.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="27.0000" cy="56.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="37.0000" cy="46.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="25.0000" cy="45.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="45.0000" cy="58.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="45.0000" cy="55.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="57.0000" cy="58.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="144.0000" cy="71.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="161.0000" cy="74.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="158.0000" cy="118.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="127.0000" cy="116.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="107.0000" cy="91.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="104.0000" cy="104.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="116.0000" cy="37.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="119.0000" cy="35.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="116.0000" cy="16.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="101.0000" cy="24.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="105.0000" cy="17.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="121.0000" cy="26.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="121.0000" cy="18.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="176.0000" cy="30.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="179.0000" cy="28.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="176.0000" cy="29.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="161.0000" cy="17.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="165.0000" cy="10.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="180.0000" cy="12.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="29.0000" cy="96.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="8.0000" cy="124.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="41.0000" cy="98.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="21.0000" cy="126.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="23.0000" cy="81.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="182.0000" cy="18.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="21.0000" cy="38.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="38.0000" cy="10.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="33.0000" cy="13.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <circle cx="59.0000" cy="1.0000" r="6.0" stroke="red" fill="none" stroke-width="2.0"/>
+   <!-- dels -->
+   <line x1="161.0000" y1="1.0000" x2="171.0000" y2="11.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="171.0000" y1="1.0000" x2="161.0000" y2="11.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="16.0000" y1="37.0000" x2="26.0000" y2="47.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="26.0000" y1="37.0000" x2="16.0000" y2="47.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="59.0000" y1="74.0000" x2="69.0000" y2="84.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="69.0000" y1="74.0000" x2="59.0000" y2="84.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="16.0000" y1="78.0000" x2="26.0000" y2="88.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="26.0000" y1="78.0000" x2="16.0000" y2="88.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="19.0000" y1="33.0000" x2="29.0000" y2="43.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="29.0000" y1="33.0000" x2="19.0000" y2="43.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="17.0000" y1="32.0000" x2="27.0000" y2="42.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="27.0000" y1="32.0000" x2="17.0000" y2="42.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="38.0000" y1="22.0000" x2="48.0000" y2="32.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="48.0000" y1="22.0000" x2="38.0000" y2="32.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="77.0000" y1="24.0000" x2="87.0000" y2="34.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="87.0000" y1="24.0000" x2="77.0000" y2="34.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="60.0000" y1="33.0000" x2="70.0000" y2="43.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="70.0000" y1="33.0000" x2="60.0000" y2="43.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="60.0000" y1="77.0000" x2="70.0000" y2="87.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="70.0000" y1="77.0000" x2="60.0000" y2="87.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="36.0000" y1="67.0000" x2="46.0000" y2="77.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="46.0000" y1="67.0000" x2="36.0000" y2="77.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="36.0000" y1="66.0000" x2="46.0000" y2="76.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="46.0000" y1="66.0000" x2="36.0000" y2="76.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="21.0000" y1="41.0000" x2="31.0000" y2="51.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="31.0000" y1="41.0000" x2="21.0000" y2="51.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="22.0000" y1="51.0000" x2="32.0000" y2="61.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="32.0000" y1="51.0000" x2="22.0000" y2="61.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="32.0000" y1="41.0000" x2="42.0000" y2="51.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="42.0000" y1="41.0000" x2="32.0000" y2="51.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="20.0000" y1="40.0000" x2="30.0000" y2="50.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="30.0000" y1="40.0000" x2="20.0000" y2="50.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="40.0000" y1="53.0000" x2="50.0000" y2="63.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="50.0000" y1="53.0000" x2="40.0000" y2="63.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="40.0000" y1="50.0000" x2="50.0000" y2="60.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="50.0000" y1="50.0000" x2="40.0000" y2="60.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="52.0000" y1="53.0000" x2="62.0000" y2="63.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="62.0000" y1="53.0000" x2="52.0000" y2="63.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="139.0000" y1="66.0000" x2="149.0000" y2="76.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="149.0000" y1="66.0000" x2="139.0000" y2="76.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="156.0000" y1="69.0000" x2="166.0000" y2="79.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="166.0000" y1="69.0000" x2="156.0000" y2="79.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="153.0000" y1="113.0000" x2="163.0000" y2="123.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="163.0000" y1="113.0000" x2="153.0000" y2="123.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="122.0000" y1="111.0000" x2="132.0000" y2="121.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="132.0000" y1="111.0000" x2="122.0000" y2="121.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="102.0000" y1="86.0000" x2="112.0000" y2="96.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="112.0000" y1="86.0000" x2="102.0000" y2="96.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="99.0000" y1="99.0000" x2="109.0000" y2="109.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="109.0000" y1="99.0000" x2="99.0000" y2="109.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="111.0000" y1="32.0000" x2="121.0000" y2="42.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="121.0000" y1="32.0000" x2="111.0000" y2="42.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="114.0000" y1="30.0000" x2="124.0000" y2="40.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="124.0000" y1="30.0000" x2="114.0000" y2="40.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="111.0000" y1="11.0000" x2="121.0000" y2="21.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="121.0000" y1="11.0000" x2="111.0000" y2="21.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="96.0000" y1="19.0000" x2="106.0000" y2="29.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="106.0000" y1="19.0000" x2="96.0000" y2="29.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="100.0000" y1="12.0000" x2="110.0000" y2="22.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="110.0000" y1="12.0000" x2="100.0000" y2="22.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="116.0000" y1="21.0000" x2="126.0000" y2="31.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="126.0000" y1="21.0000" x2="116.0000" y2="31.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="116.0000" y1="13.0000" x2="126.0000" y2="23.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="126.0000" y1="13.0000" x2="116.0000" y2="23.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="171.0000" y1="25.0000" x2="181.0000" y2="35.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="181.0000" y1="25.0000" x2="171.0000" y2="35.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="174.0000" y1="23.0000" x2="184.0000" y2="33.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="184.0000" y1="23.0000" x2="174.0000" y2="33.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="171.0000" y1="24.0000" x2="181.0000" y2="34.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="181.0000" y1="24.0000" x2="171.0000" y2="34.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="156.0000" y1="12.0000" x2="166.0000" y2="22.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="166.0000" y1="12.0000" x2="156.0000" y2="22.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="160.0000" y1="5.0000" x2="170.0000" y2="15.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="170.0000" y1="5.0000" x2="160.0000" y2="15.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="175.0000" y1="7.0000" x2="185.0000" y2="17.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="185.0000" y1="7.0000" x2="175.0000" y2="17.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="24.0000" y1="91.0000" x2="34.0000" y2="101.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="34.0000" y1="91.0000" x2="24.0000" y2="101.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="3.0000" y1="119.0000" x2="13.0000" y2="129.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="13.0000" y1="119.0000" x2="3.0000" y2="129.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="36.0000" y1="93.0000" x2="46.0000" y2="103.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="46.0000" y1="93.0000" x2="36.0000" y2="103.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="16.0000" y1="121.0000" x2="26.0000" y2="131.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="26.0000" y1="121.0000" x2="16.0000" y2="131.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="18.0000" y1="76.0000" x2="28.0000" y2="86.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="28.0000" y1="76.0000" x2="18.0000" y2="86.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="177.0000" y1="13.0000" x2="187.0000" y2="23.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="187.0000" y1="13.0000" x2="177.0000" y2="23.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="16.0000" y1="33.0000" x2="26.0000" y2="43.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="26.0000" y1="33.0000" x2="16.0000" y2="43.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="33.0000" y1="5.0000" x2="43.0000" y2="15.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="43.0000" y1="5.0000" x2="33.0000" y2="15.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="28.0000" y1="8.0000" x2="38.0000" y2="18.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="38.0000" y1="8.0000" x2="28.0000" y2="18.0000" stroke="red" stroke-width="1.5"/>
+   <!-- dels -->
+   <line x1="54.0000" y1="-4.0000" x2="64.0000" y2="6.0000" stroke="red" stroke-width="1.5"/>
+   <line x1="64.0000" y1="-4.0000" x2="54.0000" y2="6.0000" stroke="red" stroke-width="1.5"/>
+</g>
+</svg>

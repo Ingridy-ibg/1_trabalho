@@ -2,14 +2,8 @@
  * @file svg.c
  * @brief Implementação do módulo de geração SVG.
  *
- * Conversão de coordenadas:
- *   O plano cartesiano tem y=0 embaixo, y crescendo para cima.
- *   O SVG tem y=0 em cima, y crescendo para baixo.
- *
- *   Fórmula:  y_svg = altura_total - (y_cart - y_cart_min) - MARGEM
- *
- *   Os valores g_altura e g_ymin_cart são calculados em svgInicia()
- *   a partir do bounding-box das formas e são usados por todo o módulo.
+ * Coordenadas: usadas diretamente do plano cartesiano, sem inversão de Y.
+ * O viewBox é calculado a partir do bounding-box das formas com margem.
  */
 
 #include <stdio.h>
@@ -29,34 +23,12 @@
    Constantes
    ───────────────────────────────────────────── */
 
-#define MARGEM          20.0   /* espaço ao redor do bounding-box     */
+#define MARGEM          15.0   /* espaço ao redor do bounding-box     */
 #define ANELO_R          6.0   /* raio do anel de seleção             */
 #define ANELO_SW         2.0   /* stroke-width do anel                */
 #define X_BRACO          5.0   /* metade do comprimento do braço do x */
 #define X_SW             1.5   /* stroke-width do x de remoção        */
 #define SEL_SW           1.5   /* stroke-width da borda de seleção    */
-
-/* ─────────────────────────────────────────────
-   Estado interno do módulo
-   ───────────────────────────────────────────── */
-
-/* Calculados em svgInicia(); usados em toSvgY(). */
-static double g_altura    = 200.0;  /* altura total do viewport SVG   */
-static double g_ymin_cart = 0.0;    /* menor y cartesiano do bbox     */
-static double g_xmin_cart = 0.0;    /* menor x cartesiano (para rect) */
-
-/* ─────────────────────────────────────────────
-   Conversão de coordenadas
-   ───────────────────────────────────────────── */
-
-/**
- * Converte coordenada y do plano cartesiano para y SVG.
- * O ponto y_cart == g_ymin_cart mapeia para y_svg == g_altura - MARGEM
- * (borda inferior do viewport).
- */
-static double toSvgY(double y_cart) {
-    return g_altura - (y_cart - g_ymin_cart) - MARGEM;
-}
 
 /* ─────────────────────────────────────────────
    Bounding-box
@@ -132,8 +104,8 @@ static const char *pesoParaSvg(const char *w) {
 
 /* Família "sans","serif","cursive" → font-family SVG */
 static const char *familiaParaSvg(const char *f) {
-    if (f == NULL)              return "sans-serif";
-    if (strcmp(f, "sans") == 0) return "sans-serif";
+    if (f == NULL)               return "sans-serif";
+    if (strcmp(f, "sans")  == 0) return "sans-serif";
     if (strcmp(f, "serif") == 0) return "serif";
     return "cursive";
 }
@@ -148,22 +120,19 @@ void svgInicia(FILE *f, Formas fs) {
     BBox bb = (fs != NULL) ? calculaBBox(fs)
                            : (BBox){ 0, 0, 200, 200 };
 
-    double largura = (bb.xmax - bb.xmin) + 2 * MARGEM;
-    double altura  = (bb.ymax - bb.ymin) + 2 * MARGEM;
-
-    /* Salva estado para conversões posteriores */
-    g_altura    = altura;
-    g_ymin_cart = bb.ymin;
-    g_xmin_cart = bb.xmin;
+    double largura = (bb.xmax - bb.xmin) + 2.0 * MARGEM;
+    double altura  = (bb.ymax - bb.ymin) + 2.0 * MARGEM;
+    double vx      = bb.xmin - MARGEM;
+    double vy      = bb.ymin - MARGEM;
 
     fprintf(f, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n");
     fprintf(f,
         "<svg xmlns=\"http://www.w3.org/2000/svg\""
+        " xmlns:xlink=\"http://www.w3.org/1999/xlink\""
         " width=\"%.4f\" height=\"%.4f\""
-        " viewBox=\"%.4f 0 %.4f %.4f\">\n",
-        largura, altura,
-        bb.xmin - MARGEM,
-        largura, altura);
+        " viewBox=\"%.4f %.4f %.4f %.4f\">\n",
+        largura, altura, vx, vy, largura, altura);
+    fprintf(f, "<g id=\"fig\">\n");
 }
 
 /* ─────────────────────────────────────────────
@@ -172,6 +141,7 @@ void svgInicia(FILE *f, Formas fs) {
 
 void svgFinaliza(FILE *f) {
     if (f == NULL) return;
+    fprintf(f, "</g>\n");
     fprintf(f, "</svg>\n");
 }
 
@@ -186,37 +156,41 @@ void svgEscreveFormas(FILE *f, Formas fs) {
     while (p != NULL) {
         const char *tipo = getTipoForma(fs, p);
         void       *d    = getDadosForma(fs, p);
+        int         id   = getIdForma(fs, p);
 
         if (strcmp(tipo, "circulo") == 0) {
             fprintf(f,
-                "  <circle cx=\"%.4f\" cy=\"%.4f\" r=\"%.4f\""
-                " stroke=\"%s\" fill=\"%s\"/>\n",
-                getXCirculo(d),
-                toSvgY(getYCirculo(d)),
+                "   <circle id=\"%d\""
+                " r=\"%.3f\" cx=\"%.6f\" cy=\"%.6f\""
+                " fill=\"%s\" stroke=\"%s\""
+                " fill-opacity=\"0.5\" stroke-width=\"1.0px\"/>\n",
+                id,
                 getRCirculo(d),
-                getCorbCirculo(d),
-                getCorpCirculo(d));
+                getXCirculo(d), getYCirculo(d),
+                getCorpCirculo(d), getCorbCirculo(d));
 
         } else if (strcmp(tipo, "retangulo") == 0) {
-            double rx   = getXRetangulo(d);
-            double ry_c = getYRetangulo(d);
-            double rw   = getWRetangulo(d);
-            double rh   = getHRetangulo(d);
-            /* Canto sup. esq. em SVG = y cartesiano do canto inf. esq. + h */
-            double ry_svg = toSvgY(ry_c + rh);
             fprintf(f,
-                "  <rect x=\"%.4f\" y=\"%.4f\" width=\"%.4f\" height=\"%.4f\""
-                " stroke=\"%s\" fill=\"%s\"/>\n",
-                rx, ry_svg, rw, rh,
-                getCorbRetangulo(d),
-                getCorpRetangulo(d));
+                "   <rect id=\"%d\""
+                " x=\"%.6f\" y=\"%.6f\""
+                " width=\"%.6f\" height=\"%.6f\""
+                " fill=\"%s\" stroke=\"%s\""
+                " fill-opacity=\"0.5\" stroke-width=\"1.0px\"/>\n",
+                id,
+                getXRetangulo(d), getYRetangulo(d),
+                getWRetangulo(d), getHRetangulo(d),
+                getCorpRetangulo(d), getCorbRetangulo(d));
 
         } else if (strcmp(tipo, "linha") == 0) {
             fprintf(f,
-                "  <line x1=\"%.4f\" y1=\"%.4f\" x2=\"%.4f\" y2=\"%.4f\""
-                " stroke=\"%s\"/>\n",
-                getX1Linha(d), toSvgY(getY1Linha(d)),
-                getX2Linha(d), toSvgY(getY2Linha(d)),
+                "   <line id=\"%d\""
+                " x1=\"%.6f\" y1=\"%.6f\""
+                " x2=\"%.6f\" y2=\"%.6f\""
+                " stroke=\"%s\" stroke-width=\"2\""
+                " stroke-opacity=\"1.000000\"/>\n",
+                id,
+                getX1Linha(d), getY1Linha(d),
+                getX2Linha(d), getY2Linha(d),
                 getCorLinha(d));
 
         } else if (strcmp(tipo, "texto") == 0) {
@@ -224,23 +198,52 @@ void svgEscreveFormas(FILE *f, Formas fs) {
             if (fsize <= 0.0) fsize = 12.0;
 
             fprintf(f,
-                "  <text x=\"%.4f\" y=\"%.4f\""
-                " stroke=\"%s\" fill=\"%s\""
-                " font-family=\"%s\" font-weight=\"%s\" font-size=\"%.2f\""
-                " text-anchor=\"%s\">%s</text>\n",
-                getXTexto(d),
-                toSvgY(getYTexto(d)),
-                getCorbTexto(d),
-                getCorpTexto(d),
-                familiaParaSvg(getFamilyTexto(d)),
-                pesoParaSvg(getWeightTexto(d)),
-                fsize,
+                "   <text x=\"%.6f\" y=\"%.6f\" id=\"%d\""
+                " text-anchor=\"%s\""
+                " fill=\"%s\" stroke=\"%s\""
+                " font-family=\"%s\" font-size=\"%.0fpt\""
+                " font-weight=\"%s\">%s</text>\n",
+                getXTexto(d), getYTexto(d), id,
                 ancoraParaSvg(getAncora(d)),
+                getCorpTexto(d), getCorbTexto(d),
+                familiaParaSvg(getFamilyTexto(d)),
+                fsize,
+                pesoParaSvg(getWeightTexto(d)),
                 getTxto(d));
         }
 
         p = getProximaForma(fs, p);
     }
+}
+
+/* ─────────────────────────────────────────────
+   svgEscreveForma  (escreve uma única forma por id)
+   Usado por cmd_pol para gravar linhas no SVG à medida que as insere.
+   ───────────────────────────────────────────── */
+
+void svgEscreveForma(FILE *f, Formas fs, int id) {
+    if (f == NULL || fs == NULL) return;
+    PosicForma pos = buscaFormaPorId(fs, id);
+    if (pos == NULL) return;
+
+    /* Reutiliza a lógica de svgEscreveFormas para um único elemento.
+       Fazemos isso iterando manualmente para não duplicar código. */
+    const char *tipo = getTipoForma(fs, pos);
+    void       *d    = getDadosForma(fs, pos);
+
+    if (strcmp(tipo, "linha") == 0) {
+        fprintf(f,
+            "   <line id=\"%d\""
+            " x1=\"%.6f\" y1=\"%.6f\""
+            " x2=\"%.6f\" y2=\"%.6f\""
+            " stroke=\"%s\" stroke-width=\"2\""
+            " stroke-opacity=\"1.000000\"/>\n",
+            id,
+            getX1Linha(d), getY1Linha(d),
+            getX2Linha(d), getY2Linha(d),
+            getCorLinha(d));
+    }
+    /* outros tipos podem ser adicionados se pol gerar mais formas */
 }
 
 /* ─────────────────────────────────────────────
@@ -250,15 +253,13 @@ void svgEscreveFormas(FILE *f, Formas fs) {
 void svgSel(FILE *f, Formas fs, double x, double y, double w, double h) {
     if (f == NULL || fs == NULL) return;
 
-    /* Retângulo pontilhado:
-       O canto superior em SVG corresponde ao y cartesiano + h */
-    double ry_svg = toSvgY(y + h);
+    /* Retângulo pontilhado delimitando a região de seleção */
     fprintf(f,
-        "  <!-- sel -->\n"
-        "  <rect x=\"%.4f\" y=\"%.4f\" width=\"%.4f\" height=\"%.4f\""
+        "   <!-- sel -->\n"
+        "   <rect x=\"%.4f\" y=\"%.4f\" width=\"%.4f\" height=\"%.4f\""
         " stroke=\"red\" fill=\"transparent\""
         " stroke-dasharray=\"5,3\" stroke-width=\"%.1f\"/>\n",
-        x, ry_svg, w, h, SEL_SW);
+        x, y, w, h, SEL_SW);
 
     /* Anel em cada âncora selecionada */
     PosicForma p = getPrimeiraForma(fs);
@@ -267,9 +268,10 @@ void svgSel(FILE *f, Formas fs, double x, double y, double w, double h) {
             double ax, ay;
             if (getAncoraPorId(fs, getIdForma(fs, p), &ax, &ay)) {
                 fprintf(f,
-                    "  <circle cx=\"%.4f\" cy=\"%.4f\" r=\"%.1f\""
-                    " stroke=\"red\" fill=\"none\" stroke-width=\"%.1f\"/>\n",
-                    ax, toSvgY(ay), ANELO_R, ANELO_SW);
+                    "   <circle cx=\"%.4f\" cy=\"%.4f\" r=\"%.1f\""
+                    " stroke=\"red\" fill=\"none\""
+                    " stroke-width=\"%.1f\"/>\n",
+                    ax, ay, ANELO_R, ANELO_SW);
             }
         }
         p = getProximaForma(fs, p);
@@ -283,13 +285,12 @@ void svgSel(FILE *f, Formas fs, double x, double y, double w, double h) {
 void svgDels(FILE *f, double ax, double ay) {
     if (f == NULL) return;
 
-    double sx = ax, sy = toSvgY(ay);
     fprintf(f,
-        "  <!-- dels -->\n"
-        "  <line x1=\"%.4f\" y1=\"%.4f\" x2=\"%.4f\" y2=\"%.4f\""
+        "   <!-- dels -->\n"
+        "   <line x1=\"%.4f\" y1=\"%.4f\" x2=\"%.4f\" y2=\"%.4f\""
         " stroke=\"red\" stroke-width=\"%.1f\"/>\n"
-        "  <line x1=\"%.4f\" y1=\"%.4f\" x2=\"%.4f\" y2=\"%.4f\""
+        "   <line x1=\"%.4f\" y1=\"%.4f\" x2=\"%.4f\" y2=\"%.4f\""
         " stroke=\"red\" stroke-width=\"%.1f\"/>\n",
-        sx - X_BRACO, sy - X_BRACO, sx + X_BRACO, sy + X_BRACO, X_SW,
-        sx + X_BRACO, sy - X_BRACO, sx - X_BRACO, sy + X_BRACO, X_SW);
+        ax - X_BRACO, ay - X_BRACO, ax + X_BRACO, ay + X_BRACO, X_SW,
+        ax + X_BRACO, ay - X_BRACO, ax - X_BRACO, ay + X_BRACO, X_SW);
 }

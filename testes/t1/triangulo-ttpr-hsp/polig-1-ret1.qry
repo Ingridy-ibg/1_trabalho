@@ -1,0 +1,6 @@
+inp 2 10
+inp 2 11
+inp 2 12
+rmp 2
+inp 2 10
+pol 2 22 0.75 #5f5dd3 #5fd3bc

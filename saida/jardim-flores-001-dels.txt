@@ -1,0 +1,116 @@
+26 retangulo
+27 linha
+28 linha
+29 linha
+30 circulo
+31 circulo
+32 circulo
+34 retangulo
+35 linha
+36 linha
+37 linha
+38 circulo
+39 circulo
+40 circulo
+74 retangulo
+75 linha
+76 linha
+77 linha
+78 circulo
+79 circulo
+80 circulo
+82 retangulo
+83 linha
+84 linha
+85 linha
+86 circulo
+87 circulo
+88 circulo
+122 retangulo
+123 linha
+124 linha
+125 linha
+126 circulo
+127 circulo
+128 circulo
+130 retangulo
+131 linha
+132 linha
+133 linha
+134 circulo
+135 circulo
+136 circulo
+170 retangulo
+171 linha
+172 linha
+173 linha
+174 circulo
+175 circulo
+176 circulo
+178 retangulo
+179 linha
+180 linha
+181 linha
+182 circulo
+183 circulo
+184 circulo
+223 circulo
+231 circulo
+26 retangulo x=124.0000 y=25.0000 w=14.0000 h=29.0000 corb=#800080 corp=#FF00FF
+27 linha x1=115.0000 y1=15.0000 x2=124.0000 y2=28.0000 cor=#008000
+28 linha x1=130.5000 y1=9.9000 x2=131.0000 y2=27.0000 cor=#008000
+29 linha x1=146.5000 y1=13.3000 x2=135.7000 y2=28.3000 cor=#008000
+30 circulo x=111.0000 y=10.0000 r=5.0000 corb=#501644 corp=#d35fbc
+31 circulo x=130.0000 y=5.0000 r=5.0000 corb=#501644 corp=#d35fbc
+32 circulo x=149.0000 y=9.0000 r=5.0000 corb=#501644 corp=#d35fbc
+34 retangulo x=177.0000 y=25.0000 w=14.0000 h=29.0000 corb=#800080 corp=#FF00FF
+35 linha x1=168.0000 y1=15.0000 x2=177.0000 y2=28.0000 cor=#008000
+36 linha x1=183.5000 y1=9.9000 x2=184.0000 y2=27.0000 cor=#008000
+37 linha x1=199.5000 y1=13.3000 x2=188.7000 y2=28.3000 cor=#008000
+38 circulo x=164.0000 y=10.0000 r=5.0000 corb=#501644 corp=#d35fbc
+39 circulo x=183.0000 y=5.0000 r=5.0000 corb=#501644 corp=#d35fbc
+40 circulo x=202.0000 y=9.0000 r=5.0000 corb=#501644 corp=#d35fbc
+74 retangulo x=124.0000 y=84.0000 w=14.0000 h=29.0000 corb=#800080 corp=#FF00FF
+75 linha x1=115.0000 y1=74.0000 x2=124.0000 y2=87.0000 cor=#008000
+76 linha x1=130.5000 y1=68.9000 x2=131.0000 y2=86.0000 cor=#008000
+77 linha x1=146.5000 y1=72.3000 x2=135.7000 y2=87.3000 cor=#008000
+78 circulo x=111.0000 y=69.0000 r=5.0000 corb=#501644 corp=#d35fbc
+79 circulo x=130.0000 y=64.0000 r=5.0000 corb=#501644 corp=#d35fbc
+80 circulo x=149.0000 y=68.0000 r=5.0000 corb=#501644 corp=#d35fbc
+82 retangulo x=177.0000 y=84.0000 w=14.0000 h=29.0000 corb=#800080 corp=#FF00FF
+83 linha x1=168.0000 y1=74.0000 x2=177.0000 y2=87.0000 cor=#008000
+84 linha x1=183.5000 y1=68.9000 x2=184.0000 y2=86.0000 cor=#008000
+85 linha x1=199.5000 y1=72.3000 x2=188.7000 y2=87.3000 cor=#008000
+86 circulo x=164.0000 y=69.0000 r=5.0000 corb=#501644 corp=#d35fbc
+87 circulo x=183.0000 y=64.0000 r=5.0000 corb=#501644 corp=#d35fbc
+88 circulo x=202.0000 y=68.0000 r=5.0000 corb=#501644 corp=#d35fbc
+122 retangulo x=124.0000 y=143.0000 w=14.0000 h=29.0000 corb=#800080 corp=#FF00FF
+123 linha x1=115.0000 y1=133.0000 x2=124.0000 y2=146.0000 cor=#008000
+124 linha x1=130.5000 y1=127.9000 x2=131.0000 y2=145.0000 cor=#008000
+125 linha x1=146.5000 y1=131.3000 x2=135.7000 y2=146.3000 cor=#008000
+126 circulo x=111.0000 y=128.0000 r=5.0000 corb=#501644 corp=#d35fbc
+127 circulo x=130.0000 y=123.0000 r=5.0000 corb=#501644 corp=#d35fbc
+128 circulo x=149.0000 y=127.0000 r=5.0000 corb=#501644 corp=#d35fbc
+130 retangulo x=177.0000 y=143.0000 w=14.0000 h=29.0000 corb=#800080 corp=#FF00FF
+131 linha x1=168.0000 y1=133.0000 x2=177.0000 y2=146.0000 cor=#008000
+132 linha x1=183.5000 y1=127.9000 x2=184.0000 y2=145.0000 cor=#008000
+133 linha x1=199.5000 y1=131.3000 x2=188.7000 y2=146.3000 cor=#008000
+134 circulo x=164.0000 y=128.0000 r=5.0000 corb=#501644 corp=#d35fbc
+135 circulo x=183.0000 y=123.0000 r=5.0000 corb=#501644 corp=#d35fbc
+136 circulo x=202.0000 y=127.0000 r=5.0000 corb=#501644 corp=#d35fbc
+170 retangulo x=124.0000 y=202.0000 w=14.0000 h=29.0000 corb=#800080 corp=#FF00FF
+171 linha x1=115.0000 y1=192.0000 x2=124.0000 y2=205.0000 cor=#008000
+172 linha x1=130.5000 y1=186.9000 x2=131.0000 y2=204.0000 cor=#008000
+173 linha x1=146.5000 y1=190.3000 x2=135.7000 y2=205.3000 cor=#008000
+174 circulo x=111.0000 y=187.0000 r=5.0000 corb=#501644 corp=#d35fbc
+175 circulo x=130.0000 y=182.0000 r=5.0000 corb=#501644 corp=#d35fbc
+176 circulo x=149.0000 y=186.0000 r=5.0000 corb=#501644 corp=#d35fbc
+178 retangulo x=177.0000 y=202.0000 w=14.0000 h=29.0000 corb=#800080 corp=#FF00FF
+179 linha x1=168.0000 y1=192.0000 x2=177.0000 y2=205.0000 cor=#008000
+180 linha x1=183.5000 y1=186.9000 x2=184.0000 y2=204.0000 cor=#008000
+181 linha x1=199.5000 y1=190.3000 x2=188.7000 y2=205.3000 cor=#008000
+182 circulo x=164.0000 y=187.0000 r=5.0000 corb=#501644 corp=#d35fbc
+183 circulo x=183.0000 y=182.0000 r=5.0000 corb=#501644 corp=#d35fbc
+184 circulo x=202.0000 y=186.0000 r=5.0000 corb=#501644 corp=#d35fbc
+223 circulo x=130.0000 y=241.0000 r=5.0000 corb=#501644 corp=#d35fbc
+231 circulo x=183.0000 y=241.0000 r=5.0000 corb=#501644 corp=#d35fbc

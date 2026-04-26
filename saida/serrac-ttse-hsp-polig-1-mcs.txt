@@ -1,0 +1,145 @@
+inp 2 10: (115.0000, 60.0000) texto
+inp 2 11: (101.1095, 78.3031) texto
+inp 2 12: (96.8022, 100.8730) texto
+inp 2 13: (73.9058, 102.7975) texto
+inp 2 14: (54.2509, 114.6987) texto
+inp 2 15: (37.5000, 98.9711) texto
+inp 2 16: (15.5041, 92.3282) texto
+inp 2 17: (15.9834, 69.3560) texto
+inp 2 18: (6.2019, 48.5649) texto
+inp 2 19: (23.5942, 33.5497) texto
+inp 2 20: (32.5000, 12.3686) texto
+inp 2 21: (55.2962, 15.2465) texto
+inp 2 22: (76.9959, 7.6919) texto
+inp 2 23: (90.1109, 26.5585) texto
+inp 2 24: (110.2450, 37.6295) texto
+10 texto
+11 texto
+17 texto
+18 texto
+19 texto
+20 texto
+21 texto
+22 texto
+23 texto
+24 texto
+34 linha
+41 linha
+42 linha
+43 linha
+44 linha
+45 linha
+46 linha
+47 linha
+48 linha
+49 linha
+50 linha
+51 linha
+52 linha
+53 linha
+54 linha
+55 linha
+56 linha
+57 linha
+58 linha
+59 linha
+60 linha
+61 linha
+62 linha
+63 linha
+64 linha
+65 linha
+66 linha
+67 linha
+68 linha
+69 linha
+70 linha
+71 linha
+72 linha
+73 linha
+74 linha
+75 linha
+76 linha
+77 linha
+78 linha
+79 linha
+80 linha
+81 linha
+82 linha
+83 linha
+84 linha
+85 linha
+86 linha
+87 linha
+88 linha
+89 linha
+90 linha
+91 linha
+92 linha
+93 linha
+94 linha
+95 linha
+96 linha
+97 linha
+98 linha
+99 linha
+100 linha
+101 linha
+102 linha
+103 linha
+104 linha
+105 linha
+106 linha
+107 linha
+108 linha
+109 linha
+110 linha
+111 linha
+112 linha
+113 linha
+114 linha
+115 linha
+116 linha
+117 linha
+118 linha
+119 linha
+120 linha
+121 linha
+122 linha
+123 linha
+124 linha
+125 linha
+126 linha
+127 linha
+128 linha
+129 linha
+130 linha
+131 linha
+132 linha
+133 linha
+134 linha
+135 linha
+136 linha
+137 linha
+138 linha
+139 linha
+140 linha
+141 linha
+142 linha
+143 linha
+144 linha
+145 linha
+146 linha
+147 linha
+148 linha
+149 linha
+150 linha
+151 linha
+152 linha
+153 linha
+154 linha
+155 linha
+156 linha
+157 linha
+158 linha
+159 linha

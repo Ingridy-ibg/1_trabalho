@@ -1,7 +1,0 @@
-# t03.qry — testa inp/rmp com linha e mcs
-inp 2 8
-inp 2 9
-inp 2 10
-rmp 2
-sel 0.0 0.0 500.0 500.0
-mcs 0.0 0.0 darkblue lightyellow

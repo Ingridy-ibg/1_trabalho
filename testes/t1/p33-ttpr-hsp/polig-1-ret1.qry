@@ -1,0 +1,36 @@
+inp 2 10
+inp 2 11
+inp 2 12
+inp 2 13
+inp 2 14
+inp 2 15
+inp 2 16
+inp 2 17
+inp 2 18
+inp 2 19
+inp 2 20
+inp 2 21
+inp 2 22
+inp 2 23
+inp 2 24
+inp 2 25
+inp 2 26
+inp 2 27
+inp 2 28
+inp 2 29
+inp 2 30
+inp 2 31
+inp 2 32
+inp 2 33
+inp 2 34
+inp 2 35
+inp 2 36
+inp 2 37
+inp 2 38
+inp 2 39
+inp 2 40
+inp 2 41
+inp 2 42
+rmp 2
+inp 2 10
+pol 2 52 0.75 #5f5dd3 #5fd3bc

@@ -197,7 +197,7 @@ static void cmd_rmp(char *linha, FILE *txt) {
 }
 
 /* pol p i d corb corp */
-static void cmd_pol(char *linha, Formas fs) {
+static void cmd_pol(char *linha, Formas fs, FILE *svg) {
     int    p, id_inicio;
     double d;
     char   corb[64], corp[64];
@@ -206,7 +206,10 @@ static void cmd_pol(char *linha, Formas fs) {
                &p, &id_inicio, &d, corb, corp) != 5)
         return;
 
-    executa_pol(fs, p, id_inicio, d, corb, corp);
+    int total = executa_pol(fs, p, id_inicio, d, corb, corp);
+    /* Escreve no SVG cada linha inserida */
+    for (int k = 0; k < total; k++)
+        svgEscreveForma(svg, fs, id_inicio + k);
 }
 
 /* clp p */
@@ -310,7 +313,7 @@ bool processaQry(const char *caminho, Formas fs,
 
         if      (strcmp(cmd, "inp") == 0) cmd_inp(p, fs, svg_out, txt_out);
         else if (strcmp(cmd, "rmp") == 0) cmd_rmp(p, txt_out);
-        else if (strcmp(cmd, "pol") == 0) cmd_pol(p, fs);
+        else if (strcmp(cmd, "pol") == 0) cmd_pol(p, fs, svg_out);
         else if (strcmp(cmd, "clp") == 0) cmd_clp(p);
         else if (strcmp(cmd, "sel") == 0) cmd_sel(p, fs, svg_out, txt_out);
         else if (strcmp(cmd, "dels") == 0) cmd_dels(fs, svg_out, txt_out);
