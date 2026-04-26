@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="219.0000" height="155.0000" viewBox="-7.0000 -14.0000 219.0000 155.0000">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="311.6500" height="155.0000" viewBox="-7.0000 -14.0000 311.6500 155.0000">
 <g id="fig">
    <line id="10" x1="166.000000" y1="6.000000" x2="174.000000" y2="10.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
    <line id="11" x1="21.000000" y1="42.000000" x2="23.000000" y2="76.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
@@ -8,7 +8,7 @@
    <line id="14" x1="24.000000" y1="38.000000" x2="60.000000" y2="39.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
    <line id="15" x1="22.000000" y1="37.000000" x2="40.000000" y2="28.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
    <line id="16" x1="43.000000" y1="27.000000" x2="82.000000" y2="27.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
-   <line id="17" x1="82.000000" y1="29.000000" x2="83.000000" y2="70.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="17" x1="242.650000" y1="60.250000" x2="243.650000" y2="101.250000" stroke="#501644" stroke-width="2" stroke-opacity="1.000000"/>
    <line id="18" x1="65.000000" y1="38.000000" x2="83.000000" y2="27.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
    <line id="19" x1="65.000000" y1="82.000000" x2="81.000000" y2="72.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
    <line id="20" x1="42.000000" y1="27.000000" x2="41.000000" y2="72.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
@@ -26,13 +26,13 @@
    <line id="32" x1="169.000000" y1="113.000000" x2="127.000000" y2="116.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
    <line id="33" x1="107.000000" y1="91.000000" x2="127.000000" y2="123.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
    <line id="34" x1="104.000000" y1="104.000000" x2="135.000000" y2="69.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
-   <line id="35" x1="116.000000" y1="37.000000" x2="116.000000" y2="70.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="35" x1="276.650000" y1="68.250000" x2="276.650000" y2="101.250000" stroke="#501644" stroke-width="2" stroke-opacity="1.000000"/>
    <line id="36" x1="119.000000" y1="35.000000" x2="137.000000" y2="22.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
-   <line id="37" x1="116.000000" y1="16.000000" x2="117.000000" y2="35.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
-   <line id="38" x1="101.000000" y1="24.000000" x2="114.000000" y2="35.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
-   <line id="39" x1="105.000000" y1="17.000000" x2="117.000000" y2="25.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
-   <line id="40" x1="121.000000" y1="26.000000" x2="128.000000" y2="18.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
-   <line id="41" x1="121.000000" y1="18.000000" x2="129.000000" y2="7.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="37" x1="276.650000" y1="47.250000" x2="277.650000" y2="66.250000" stroke="#501644" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="38" x1="261.650000" y1="55.250000" x2="274.650000" y2="66.250000" stroke="#501644" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="39" x1="265.650000" y1="48.250000" x2="277.650000" y2="56.250000" stroke="#501644" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="40" x1="281.650000" y1="57.250000" x2="288.650000" y2="49.250000" stroke="#501644" stroke-width="2" stroke-opacity="1.000000"/>
+   <line id="41" x1="281.650000" y1="49.250000" x2="289.650000" y2="38.250000" stroke="#501644" stroke-width="2" stroke-opacity="1.000000"/>
    <line id="42" x1="176.000000" y1="30.000000" x2="176.000000" y2="64.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
    <line id="43" x1="179.000000" y1="28.000000" x2="197.000000" y2="16.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>
    <line id="44" x1="176.000000" y1="29.000000" x2="179.000000" y2="9.000000" stroke="blue" stroke-width="2" stroke-opacity="1.000000"/>

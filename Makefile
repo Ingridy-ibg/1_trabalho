@@ -181,5 +181,6 @@ rodatestes: ted
 	echo ""; \
 	echo "$$count arquivo(s) processado(s). Gerados em saida/:"; \
 	ls saida/
+	
 run: $(PROJ_NAME)
 	./src/$(PROJ_NAME)

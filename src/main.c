@@ -8,9 +8,11 @@
  *   3. processaGeo      → popula banco
  *   4. svgInicia + svgEscreveFormas + svgFinaliza  → arq.svg
  *   5. Se -q fornecido:
- *        svgInicia + svgEscreveFormas               → arq-qry.svg (base)
- *        processaQry (escreve no svg e no txt)
- *        svgFinaliza                                → fecha arq-qry.svg
+ *        processaQry    → modifica banco (dels/mcs/pol) e
+ *                         coleta anotações em arquivo temporário
+ *        svgInicia + svgEscreveFormas → escreve estado FINAL do banco
+ *        copia anotações do temp para o SVG
+ *        svgFinaliza                  → fecha arq-qry.svg
  *   6. destroiFormas / destroiPoligonos
  */
 
@@ -40,17 +42,17 @@ bool parseArgs(int argc, char *argv[], Args *args) {
     args->base_saida[0] = '\0';
     args->arq_qry[0]    = '\0';
 
-    for (int i = 1; i < argc - 1; i++) {
-        if      (strcmp(argv[i], "-e") == 0) {
+    for (int i = 1; i < argc; i++) {
+        if      (strcmp(argv[i], "-e") == 0 && i + 1 < argc) {
             strncpy(args->base_entrada, argv[++i], MAX_PATH - 1);
             args->base_entrada[MAX_PATH - 1] = '\0';
-        } else if (strcmp(argv[i], "-f") == 0) {
+        } else if (strcmp(argv[i], "-f") == 0 && i + 1 < argc) {
             strncpy(args->arq_geo, argv[++i], MAX_PATH - 1);
             args->arq_geo[MAX_PATH - 1] = '\0';
-        } else if (strcmp(argv[i], "-o") == 0) {
+        } else if (strcmp(argv[i], "-o") == 0 && i + 1 < argc) {
             strncpy(args->base_saida, argv[++i], MAX_PATH - 1);
             args->base_saida[MAX_PATH - 1] = '\0';
-        } else if (strcmp(argv[i], "-q") == 0) {
+        } else if (strcmp(argv[i], "-q") == 0 && i + 1 < argc) {
             strncpy(args->arq_qry, argv[++i], MAX_PATH - 1);
             args->arq_qry[MAX_PATH - 1] = '\0';
         }
@@ -70,16 +72,25 @@ bool parseArgs(int argc, char *argv[], Args *args) {
    ───────────────────────────────────────────── */
 
 static void stem(const char *nome, char *saida, size_t tam) {
-    /* Pega só o basename */
     const char *base = strrchr(nome, '/');
     base = (base != NULL) ? base + 1 : nome;
 
     strncpy(saida, base, tam - 1);
     saida[tam - 1] = '\0';
 
-    /* Remove extensão */
     char *ponto = strrchr(saida, '.');
     if (ponto) *ponto = '\0';
+}
+
+/* ─────────────────────────────────────────────
+   Auxiliar: copia conteúdo de 'src' para 'dst'
+   ───────────────────────────────────────────── */
+
+static void copiaArquivo(FILE *src, FILE *dst) {
+    rewind(src);
+    int c;
+    while ((c = fgetc(src)) != EOF)
+        fputc(c, dst);
 }
 
 /* ─────────────────────────────────────────────
@@ -139,12 +150,10 @@ int main(int argc, char *argv[]) {
         char stem_qry[MAX_PATH];
         stem(args.arq_qry, stem_qry, MAX_PATH);
 
-        /* arq-qry.svg */
         char caminho_svg_qry[MAX_PATH];
         snprintf(caminho_svg_qry, MAX_PATH, "%s/%s-%s.svg",
                  args.base_saida, stem_geo, stem_qry);
 
-        /* arq-qry.txt */
         char caminho_txt_qry[MAX_PATH];
         snprintf(caminho_txt_qry, MAX_PATH, "%s/%s-%s.txt",
                  args.base_saida, stem_geo, stem_qry);
@@ -166,12 +175,44 @@ int main(int argc, char *argv[]) {
             return 1;
         }
 
-        /* SVG de query começa com todas as formas do .geo */
+        /*
+         * Arquivo temporário para anotações SVG geradas pelas queries
+         * (sel, dels, anéis). Elas precisam aparecer DEPOIS das formas
+         * no SVG final, por isso são escritas aqui primeiro e copiadas
+         * para o SVG real após svgEscreveFormas.
+         */
+        FILE *f_ann = tmpfile();
+        if (f_ann == NULL) {
+            fprintf(stderr, "ted: nao foi possivel criar arquivo temporario\n");
+            fclose(f_svg_qry);
+            fclose(f_txt_qry);
+            destroiFormas(fs);
+            destroiPoligonos();
+            return 1;
+        }
+
+        /*
+         * Passo A: processa queries.
+         *   - dels  → remove formas do banco
+         *   - mcs   → translada e recolore formas no banco
+         *   - pol   → insere novas linhas no banco
+         *   - sel   → escreve anotações em f_ann
+         *   - dels  → escreve marcadores "x" em f_ann
+         */
+        processaQry(caminho_qry, fs, f_ann, f_txt_qry);
+
+        /*
+         * Passo B: grava o estado FINAL do banco no SVG.
+         *   - Formas deletadas pelo dels não existem mais → não aparecem.
+         *   - Formas movidas/recoloridas pelo mcs têm coordenadas novas.
+         *   - Linhas geradas pelo pol já estão no banco.
+         */
         svgInicia(f_svg_qry, fs);
         svgEscreveFormas(f_svg_qry, fs);
 
-        /* processaQry escreve marcações no svg e relatório no txt */
-        processaQry(caminho_qry, fs, f_svg_qry, f_txt_qry);
+        /* Passo C: copia as anotações (sel, x) para depois das formas. */
+        copiaArquivo(f_ann, f_svg_qry);
+        fclose(f_ann);
 
         svgFinaliza(f_svg_qry);
         fclose(f_svg_qry);
