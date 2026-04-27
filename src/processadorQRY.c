@@ -198,6 +198,7 @@ static void cmd_rmp(char *linha, FILE *txt) {
 
 /* pol p i d corb corp */
 static void cmd_pol(char *linha, Formas fs, FILE *svg) {
+    (void)svg;  /* não escreve no SVG aqui — svgEscreveFormas cuida disso */
     int    p, id_inicio;
     double d;
     char   corb[64], corp[64];
@@ -206,10 +207,7 @@ static void cmd_pol(char *linha, Formas fs, FILE *svg) {
                &p, &id_inicio, &d, corb, corp) != 5)
         return;
 
-    int total = executa_pol(fs, p, id_inicio, d, corb, corp);
-    /* Escreve no SVG cada linha inserida */
-    for (int k = 0; k < total; k++)
-        svgEscreveForma(svg, fs, id_inicio + k);
+    executa_pol(fs, p, id_inicio, d, corb, corp);
 }
 
 /* clp p */

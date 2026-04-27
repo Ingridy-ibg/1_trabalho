@@ -28,6 +28,20 @@
 #include "processadorQRY.h"
 #include "svg.h"
 
+
+/**
+ * @struct Args
+ * @brief Argumentos de linha de comando já parseados.
+ *
+ * Campos opcionais ficam com string vazia ("") quando não informados.
+ */
+typedef struct Args {
+    char base_entrada[MAX_PATH]; /**< -e  Diretório-base de entrada. Padrão: "."  */
+    char arq_geo[MAX_PATH];      /**< -f  Nome do arquivo .geo (obrigatório)       */
+    char base_saida[MAX_PATH];   /**< -o  Diretório-base de saída  (obrigatório)   */
+    char arq_qry[MAX_PATH];      /**< -q  Nome do arquivo .qry (opcional)          */
+} Args;
+
 /* ─────────────────────────────────────────────
    parseArgs
    ───────────────────────────────────────────── */

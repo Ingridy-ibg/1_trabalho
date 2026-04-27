@@ -22,18 +22,8 @@
 /** Tamanho máximo para caminhos de arquivo/diretório. */
 #define MAX_PATH 16384
 
-/**
- * @struct Args
- * @brief Argumentos de linha de comando já parseados.
- *
- * Campos opcionais ficam com string vazia ("") quando não informados.
- */
-typedef struct {
-    char base_entrada[MAX_PATH]; /**< -e  Diretório-base de entrada. Padrão: "."  */
-    char arq_geo[MAX_PATH];      /**< -f  Nome do arquivo .geo (obrigatório)       */
-    char base_saida[MAX_PATH];   /**< -o  Diretório-base de saída  (obrigatório)   */
-    char arq_qry[MAX_PATH];      /**< -q  Nome do arquivo .qry (opcional)          */
-} Args;
+/** Forward declaration da struct Args (definida em main.c) */
+struct Args;
 
 /**
  * @brief Parseia os argumentos de linha de comando e preenche Args.
@@ -50,6 +40,6 @@ typedef struct {
  * @return true  se todos os campos obrigatórios foram encontrados.
  *         false caso contrário (imprime uso no stderr).
  */
-bool parseArgs(int argc, char *argv[], Args *args);
+bool parseArgs(int argc, char *argv[], struct Args *args);
 
 #endif /* MAIN_H */
