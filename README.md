@@ -1,9 +1,5 @@
 # TED — Trabalho I de Estrutura de Dados I (2026)
 
-Programa em C que lê descrições de formas geométricas em um plano cartesiano,
-processa consultas (seleções, polígonos, modificações) e produz visualizações
-em SVG e relatórios em texto.
-
 **Aluna:** Ingridy Gimenes
 **Disciplina:** Estrutura de Dados I — 2026
 
@@ -103,20 +99,6 @@ make clean
 ├── testes/t1/            # Casos de teste fornecidos pelo professor
 └── saida/                # Saídas geradas
 
-### Decisões de implementação
-
-- **Lista**: implementação dinâmica com encadeamento duplo, conforme TAD em
-  aula. Sentinelas (cabeça/cauda) facilitam inserção/remoção.
-- **Fila**: array estático circular (tamanho fixo definido em compilação).
-- **Polígonos**: armazenados em filas estáticas (uma por polígono, até 10).
-- **Formas**: armazenadas em uma `Lista` (banco). Uma segunda `Lista` mantém
-  as figuras selecionadas pelo `sel` (conforme a spec exige).
-- **Encapsulamento**: todos os módulos usam ponteiros opacos (`typedef void *`).
-  Nenhum `struct` é definido em arquivo `.h`.
-- **Hachuras adaptativas**: o `pol` aplica `stroke-width = d/4` às linhas de
-  preenchimento e `d/2` às bordas, garantindo que as hachuras fiquem
-  visualmente separadas independente do valor de `d`.
-
 ---
 
 ## Testes unitários
@@ -156,20 +138,6 @@ O comando `pol` usa o algoritmo **scanline horizontal**:
 4. As bordas recebem `stroke-width = d/2` e as hachuras `d/4`.
 
 O número de linhas inseridas é reportado no TXT.
-
----
-
-## Notas sobre a especificação
-
-- A funcionalidade `arq-arqcons-sufx.[svg|txt]` mencionada na tabela
-  "Resumo dos arquivos produzidos" não foi implementada porque a spec não
-  define qual comando do `.qry` recebe o sufixo, e nenhum dos casos de teste
-  fornecidos exercita esse cenário. Aparenta ser um item para o Trabalho 2.
-- O comando `pol` produz, além das linhas inseridas no banco, uma linha de
-  resumo no TXT no formato:
-pol p: N lados + M linhas preenchimento = (N+M) linhas inseridas (ids i..j)
-  Isso não é exigido pela spec; é informação extra para depuração e
-  validação.
 
 ---
 
