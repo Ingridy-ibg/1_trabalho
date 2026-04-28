@@ -13,7 +13,9 @@
  *        svgInicia + svgEscreveFormas → escreve estado FINAL do banco
  *        copia anotações do temp para o SVG
  *        svgFinaliza                  → fecha arq-qry.svg
- *   6. destroiFormas / destroiPoligonos
+ *   6. destroiFormas / destroiPoligonos / destroiArgs
+ *
+ * A implementação de parseArgs e dos getters está em args.c.
  */
 
 #include <stdio.h>
@@ -27,58 +29,6 @@
 #include "processadorGEO.h"
 #include "processadorQRY.h"
 #include "svg.h"
-
-
-/**
- * @struct Args
- * @brief Argumentos de linha de comando já parseados.
- *
- * Campos opcionais ficam com string vazia ("") quando não informados.
- */
-typedef struct Args {
-    char base_entrada[MAX_PATH]; /**< -e  Diretório-base de entrada. Padrão: "."  */
-    char arq_geo[MAX_PATH];      /**< -f  Nome do arquivo .geo (obrigatório)       */
-    char base_saida[MAX_PATH];   /**< -o  Diretório-base de saída  (obrigatório)   */
-    char arq_qry[MAX_PATH];      /**< -q  Nome do arquivo .qry (opcional)          */
-} Args;
-
-/* ─────────────────────────────────────────────
-   parseArgs
-   ───────────────────────────────────────────── */
-
-bool parseArgs(int argc, char *argv[], Args *args) {
-    if (args == NULL) return false;
-
-    /* Valores padrão */
-    strncpy(args->base_entrada, ".", MAX_PATH - 1);
-    args->base_entrada[MAX_PATH - 1] = '\0';
-    args->arq_geo[0]    = '\0';
-    args->base_saida[0] = '\0';
-    args->arq_qry[0]    = '\0';
-
-    for (int i = 1; i < argc; i++) {
-        if      (strcmp(argv[i], "-e") == 0 && i + 1 < argc) {
-            strncpy(args->base_entrada, argv[++i], MAX_PATH - 1);
-            args->base_entrada[MAX_PATH - 1] = '\0';
-        } else if (strcmp(argv[i], "-f") == 0 && i + 1 < argc) {
-            strncpy(args->arq_geo, argv[++i], MAX_PATH - 1);
-            args->arq_geo[MAX_PATH - 1] = '\0';
-        } else if (strcmp(argv[i], "-o") == 0 && i + 1 < argc) {
-            strncpy(args->base_saida, argv[++i], MAX_PATH - 1);
-            args->base_saida[MAX_PATH - 1] = '\0';
-        } else if (strcmp(argv[i], "-q") == 0 && i + 1 < argc) {
-            strncpy(args->arq_qry, argv[++i], MAX_PATH - 1);
-            args->arq_qry[MAX_PATH - 1] = '\0';
-        }
-    }
-
-    if (args->arq_geo[0] == '\0' || args->base_saida[0] == '\0') {
-        fprintf(stderr,
-            "Uso: ted -f arq.geo -o dir_saida [-e dir_entrada] [-q arq.qry]\n");
-        return false;
-    }
-    return true;
-}
 
 /* ─────────────────────────────────────────────
    Auxiliar: extrai "stem" (nome sem extensão e sem diretório)
@@ -114,8 +64,8 @@ static void copiaArquivo(FILE *src, FILE *dst) {
 int main(int argc, char *argv[]) {
 
     /* ── 1. Argumentos ── */
-    Args args;
-    if (!parseArgs(argc, argv, &args)) return 1;
+    Args args = parseArgs(argc, argv);
+    if (args == NULL) return 1;
 
     /* ── 2. Estruturas ── */
     inicializaPoligonos();
@@ -123,31 +73,36 @@ int main(int argc, char *argv[]) {
     if (fs == NULL) {
         fprintf(stderr, "ted: falha ao criar banco de formas\n");
         destroiPoligonos();
+        destroiArgs(args);
         return 1;
     }
 
     /* ── 3. Lê o .geo ── */
     char caminho_geo[MAX_PATH];
-    snprintf(caminho_geo, MAX_PATH, "%s/%s", args.base_entrada, args.arq_geo);
+    snprintf(caminho_geo, MAX_PATH, "%s/%s",
+             getBaseEntrada(args), getArqGeo(args));
 
     if (!processaGeo(caminho_geo, fs)) {
         destroiFormas(fs);
         destroiPoligonos();
+        destroiArgs(args);
         return 1;
     }
 
     /* ── 4. Gera arq.svg (sem queries) ── */
     char stem_geo[MAX_PATH];
-    stem(args.arq_geo, stem_geo, MAX_PATH);
+    stem(getArqGeo(args), stem_geo, MAX_PATH);
 
     char caminho_svg[MAX_PATH];
-    snprintf(caminho_svg, MAX_PATH, "%s/%s.svg", args.base_saida, stem_geo);
+    snprintf(caminho_svg, MAX_PATH, "%s/%s.svg",
+             getBaseSaida(args), stem_geo);
 
     FILE *f_svg = fopen(caminho_svg, "w");
     if (f_svg == NULL) {
         fprintf(stderr, "ted: nao foi possivel criar '%s'\n", caminho_svg);
         destroiFormas(fs);
         destroiPoligonos();
+        destroiArgs(args);
         return 1;
     }
     svgInicia(f_svg, fs);
@@ -156,27 +111,30 @@ int main(int argc, char *argv[]) {
     fclose(f_svg);
 
     /* ── 5. Processa .qry (se fornecido) ── */
-    if (args.arq_qry[0] != '\0') {
+    const char *arq_qry = getArqQry(args);
+    if (arq_qry[0] != '\0') {
 
         char caminho_qry[MAX_PATH];
-        snprintf(caminho_qry, MAX_PATH, "%s/%s", args.base_entrada, args.arq_qry);
+        snprintf(caminho_qry, MAX_PATH, "%s/%s",
+                 getBaseEntrada(args), arq_qry);
 
         char stem_qry[MAX_PATH];
-        stem(args.arq_qry, stem_qry, MAX_PATH);
+        stem(arq_qry, stem_qry, MAX_PATH);
 
         char caminho_svg_qry[MAX_PATH];
         snprintf(caminho_svg_qry, MAX_PATH, "%s/%s-%s.svg",
-                 args.base_saida, stem_geo, stem_qry);
+                 getBaseSaida(args), stem_geo, stem_qry);
 
         char caminho_txt_qry[MAX_PATH];
         snprintf(caminho_txt_qry, MAX_PATH, "%s/%s-%s.txt",
-                 args.base_saida, stem_geo, stem_qry);
+                 getBaseSaida(args), stem_geo, stem_qry);
 
         FILE *f_svg_qry = fopen(caminho_svg_qry, "w");
         if (f_svg_qry == NULL) {
             fprintf(stderr, "ted: nao foi possivel criar '%s'\n", caminho_svg_qry);
             destroiFormas(fs);
             destroiPoligonos();
+            destroiArgs(args);
             return 1;
         }
 
@@ -186,15 +144,10 @@ int main(int argc, char *argv[]) {
             fclose(f_svg_qry);
             destroiFormas(fs);
             destroiPoligonos();
+            destroiArgs(args);
             return 1;
         }
 
-        /*
-         * Arquivo temporário para anotações SVG geradas pelas queries
-         * (sel, dels, anéis). Elas precisam aparecer DEPOIS das formas
-         * no SVG final, por isso são escritas aqui primeiro e copiadas
-         * para o SVG real após svgEscreveFormas.
-         */
         FILE *f_ann = tmpfile();
         if (f_ann == NULL) {
             fprintf(stderr, "ted: nao foi possivel criar arquivo temporario\n");
@@ -202,25 +155,14 @@ int main(int argc, char *argv[]) {
             fclose(f_txt_qry);
             destroiFormas(fs);
             destroiPoligonos();
+            destroiArgs(args);
             return 1;
         }
 
-        /*
-         * Passo A: processa queries.
-         *   - dels  → remove formas do banco
-         *   - mcs   → translada e recolore formas no banco
-         *   - pol   → insere novas linhas no banco
-         *   - sel   → escreve anotações em f_ann
-         *   - dels  → escreve marcadores "x" em f_ann
-         */
+        /* Passo A: processa queries. */
         processaQry(caminho_qry, fs, f_ann, f_txt_qry);
 
-        /*
-         * Passo B: grava o estado FINAL do banco no SVG.
-         *   - Formas deletadas pelo dels não existem mais → não aparecem.
-         *   - Formas movidas/recoloridas pelo mcs têm coordenadas novas.
-         *   - Linhas geradas pelo pol já estão no banco.
-         */
+        /* Passo B: grava o estado FINAL do banco no SVG. */
         svgInicia(f_svg_qry, fs);
         svgEscreveFormas(f_svg_qry, fs);
 
@@ -236,6 +178,7 @@ int main(int argc, char *argv[]) {
     /* ── 6. Libera recursos ── */
     destroiFormas(fs);
     destroiPoligonos();
+    destroiArgs(args);
 
     return 0;
 }

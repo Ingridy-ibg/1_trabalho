@@ -22,14 +22,14 @@ typedef enum {
 typedef struct FormaItem {
     TipoForma tipo;
     int       id;
-    void     *dados;      /* Circulo, Retangulo, Linha ou Texto */
-    bool      selecionada;
+    void     *dados;
+    bool      selecionada;   /* cache p/ isFormaSelecionada O(1) */
 } FormaItem;
 
 typedef struct FormasStruct {
-    Lista banco;    /* Lista de FormaItem* */
+    Lista banco;          /* Lista de FormaItem*                       */
+    Lista selecionadas;   /* Lista de Posic do banco (figuras sel.)    */
     int   total;
-    int   totalSel;
 } FormasStruct;
 
 /* ─────────────────────────────────────────────
@@ -61,14 +61,13 @@ static void destroiItem(Item info) {
 static FormaItem *criaFormaItem(TipoForma tipo, int id, void *dados) {
     FormaItem *fi = (FormaItem *)malloc(sizeof(FormaItem));
     if (fi == NULL) return NULL;
-    fi->tipo      = tipo;
-    fi->id        = id;
-    fi->dados     = dados;
+    fi->tipo        = tipo;
+    fi->id          = id;
+    fi->dados       = dados;
     fi->selecionada = false;
     return fi;
 }
 
-/* Retorna a Posic da lista interna a partir de uma PosicForma */
 static Posic posicDe(PosicForma p) {
     return (Posic)p;
 }
@@ -81,16 +80,11 @@ static FormaItem *itemDe(Formas fs, PosicForma p) {
 
 static bool dentroRegiao(FormaItem *fi, double x, double y, double w, double h) {
     switch (fi->tipo) {
-        case TIPO_CIRCULO:
-            return dentroRegiaoCirculo(fi->dados, x, y, w, h);
-        case TIPO_RETANGULO:
-            return dentroRegiaoRetangulo(fi->dados, x, y, w, h);
-        case TIPO_LINHA:
-            return dentroRegiaoLinha(fi->dados, x, y, w, h);
-        case TIPO_TEXTO:
-            return dentroRegiaoTexto(fi->dados, x, y, w, h);
-        default:
-            return false;
+        case TIPO_CIRCULO:   return dentroRegiaoCirculo(fi->dados, x, y, w, h);
+        case TIPO_RETANGULO: return dentroRegiaoRetangulo(fi->dados, x, y, w, h);
+        case TIPO_LINHA:     return dentroRegiaoLinha(fi->dados, x, y, w, h);
+        case TIPO_TEXTO:     return dentroRegiaoTexto(fi->dados, x, y, w, h);
+        default:             return false;
     }
 }
 
@@ -112,6 +106,13 @@ static void setCoresForma(FormaItem *fi, const char *corb, const char *corp) {
     }
 }
 
+/* Esvazia a lista de selecionadas SEM liberar os Posic (são apenas
+   referências para nós do banco — não são heap-alocados aqui). */
+static void limpaListaSelecionadas(Lista L) {
+    while (!isEmptyLista(L))
+        removeLista(L, getFirst(L));   /* descarta o Posic retornado */
+}
+
 /* ─────────────────────────────────────────────
    Ciclo de vida
    ───────────────────────────────────────────── */
@@ -120,11 +121,13 @@ Formas criaFormas(void) {
     FormasStruct *fs = (FormasStruct *)malloc(sizeof(FormasStruct));
     if (fs == NULL) return NULL;
 
-    fs->banco    = criaLista();
-    fs->total    = 0;
-    fs->totalSel = 0;
+    fs->banco        = criaLista();
+    fs->selecionadas = criaLista();
+    fs->total        = 0;
 
-    if (fs->banco == NULL) {
+    if (fs->banco == NULL || fs->selecionadas == NULL) {
+        if (fs->banco)        destroiLista(fs->banco, NULL);
+        if (fs->selecionadas) destroiLista(fs->selecionadas, NULL);
         free(fs);
         return NULL;
     }
@@ -134,6 +137,8 @@ Formas criaFormas(void) {
 void destroiFormas(Formas fs) {
     if (fs == NULL) return;
     FormasStruct *fss = (FormasStruct *)fs;
+    /* selecionadas só guarda Posic do banco — não há nada a liberar */
+    destroiLista(fss->selecionadas, NULL);
     destroiLista(fss->banco, destroiItem);
     free(fss);
 }
@@ -239,9 +244,8 @@ bool getAncoraPorId(Formas fs, int id, double *x, double *y) {
         case TIPO_LINHA: {
             double x1 = getX1Linha(fi->dados), y1 = getY1Linha(fi->dados);
             double x2 = getX2Linha(fi->dados), y2 = getY2Linha(fi->dados);
-            /* extremidade de menor x; desempate: menor y */
             if (x1 < x2 || (x1 == x2 && y1 <= y2)) { *x = x1; *y = y1; }
-            else                                      { *x = x2; *y = y2; }
+            else                                   { *x = x2; *y = y2; }
             break;
         }
         case TIPO_TEXTO:
@@ -273,7 +277,7 @@ void *getDadosForma(Formas fs, PosicForma p) {
 }
 
 /* ─────────────────────────────────────────────
-   Iteração
+   Iteração no banco
    ───────────────────────────────────────────── */
 
 PosicForma getPrimeiraForma(Formas fs) {
@@ -299,12 +303,16 @@ void selecionaFormas(Formas fs, double x, double y, double w, double h) {
     if (fs == NULL) return;
     FormasStruct *fss = (FormasStruct *)fs;
 
-    fss->totalSel = 0;
+    /* Desconsidera seleções anteriores */
+    limpaListaSelecionadas(fss->selecionadas);
+
     Posic p = getFirst(fss->banco);
     while (p != NULL) {
         FormaItem *fi = (FormaItem *)getLista(fss->banco, p);
-        fi->selecionada = dentroRegiao(fi, x, y, w, h);
-        if (fi->selecionada) fss->totalSel++;
+        bool dentro = dentroRegiao(fi, x, y, w, h);
+        fi->selecionada = dentro;                            /* cache p/ O(1) */
+        if (dentro)
+            insereFinalLista(fss->selecionadas, (Item)p);    /* fonte canônica */
         p = getNext(fss->banco, p);
     }
 }
@@ -317,29 +325,32 @@ bool isFormaSelecionada(Formas fs, PosicForma p) {
 
 int totalFormasSelecionadas(Formas fs) {
     if (fs == NULL) return 0;
-    return ((FormasStruct *)fs)->totalSel;
+    return lengthLista(((FormasStruct *)fs)->selecionadas);
 }
 
 /* ─────────────────────────────────────────────
-   dels e mcs
+   dels e mcs — agora iteram a Lista selecionadas
    ───────────────────────────────────────────── */
 
 void removeFormasSelecionadas(Formas fs) {
     if (fs == NULL) return;
     FormasStruct *fss = (FormasStruct *)fs;
 
-    Posic p = getFirst(fss->banco);
-    while (p != NULL) {
-        Posic prox = getNext(fss->banco, p);
-        FormaItem *fi = (FormaItem *)getLista(fss->banco, p);
-        if (fi->selecionada) {
-            removeLista(fss->banco, p);
-            destroiItem(fi);
-            fss->total--;
-            fss->totalSel--;
-        }
-        p = prox;
+    /* Itera a lista de selecionadas e remove cada uma do banco */
+    Posic ps = getFirst(fss->selecionadas);
+    while (ps != NULL) {
+        Posic prox_ps = getNext(fss->selecionadas, ps);
+        Posic p_banco = (Posic)getLista(fss->selecionadas, ps);
+
+        FormaItem *fi = (FormaItem *)removeLista(fss->banco, p_banco);
+        destroiItem(fi);
+        fss->total--;
+
+        ps = prox_ps;
     }
+
+    /* Esvazia a lista (Posic já invalidados pela remoção do banco) */
+    limpaListaSelecionadas(fss->selecionadas);
 }
 
 void modificaFormasSelecionadas(Formas fs, double dx, double dy,
@@ -347,13 +358,13 @@ void modificaFormasSelecionadas(Formas fs, double dx, double dy,
     if (fs == NULL || corb == NULL || corp == NULL) return;
     FormasStruct *fss = (FormasStruct *)fs;
 
-    Posic p = getFirst(fss->banco);
-    while (p != NULL) {
-        FormaItem *fi = (FormaItem *)getLista(fss->banco, p);
-        if (fi->selecionada) {
-            transladaForma(fi, dx, dy);
-            setCoresForma(fi, corb, corp);
-        }
-        p = getNext(fss->banco, p);
+    /* Itera a lista de selecionadas e modifica cada figura no banco */
+    Posic ps = getFirst(fss->selecionadas);
+    while (ps != NULL) {
+        Posic p_banco = (Posic)getLista(fss->selecionadas, ps);
+        FormaItem *fi = (FormaItem *)getLista(fss->banco, p_banco);
+        transladaForma(fi, dx, dy);
+        setCoresForma(fi, corb, corp);
+        ps = getNext(fss->selecionadas, ps);
     }
 }

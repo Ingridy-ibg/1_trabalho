@@ -3,14 +3,27 @@
 #include "fila.h"
 
 /* ─────────────────────────────────────────────
+   Capacidade máxima do array estático interno.
+   A fila lógica pode ter capacidade ≤ FILA_CAPACIDADE_MAX,
+   definida em criaFila. Para os polígonos do trabalho,
+   200 é suficiente (MAX_PONTOS_POLIGONO).
+   ───────────────────────────────────────────── */
+
+#define FILA_CAPACIDADE_MAX 200
+
+/* ─────────────────────────────────────────────
    Estrutura interna (proibido expor no .h)
+   Implementação ESTÁTICA circular:
+   o array `dados` tem tamanho fixo definido em
+   tempo de compilação — sem alocação dinâmica
+   para o conteúdo da fila.
    ───────────────────────────────────────────── */
 
 typedef struct FilaStruct {
-    Item *dados;       /* array estático de itens         */
-    int   capacidade;  /* tamanho máximo do array         */
-    int   inicio;      /* índice do elemento mais antigo  */
-    int   tamanho;     /* quantidade de elementos         */
+    Item dados[FILA_CAPACIDADE_MAX];  /* array estático de itens */
+    int  capacidade;                   /* capacidade lógica (≤ FILA_CAPACIDADE_MAX) */
+    int  inicio;                       /* índice do elemento mais antigo */
+    int  tamanho;                      /* quantidade de elementos */
 } FilaStruct;
 
 /* ─────────────────────────────────────────────
@@ -18,16 +31,10 @@ typedef struct FilaStruct {
    ───────────────────────────────────────────── */
 
 Fila criaFila(int capacidade) {
-    if (capacidade <= 0) return NULL;
+    if (capacidade <= 0 || capacidade > FILA_CAPACIDADE_MAX) return NULL;
 
     FilaStruct *F = (FilaStruct *)malloc(sizeof(FilaStruct));
     if (F == NULL) return NULL;
-
-    F->dados = (Item *)malloc(capacidade * sizeof(Item));
-    if (F->dados == NULL) {
-        free(F);
-        return NULL;
-    }
 
     F->capacidade = capacidade;
     F->inicio     = 0;
@@ -59,7 +66,7 @@ Item dequeue(Fila F) {
     if (fs->tamanho == 0) return NULL;  /* fila vazia */
 
     Item removido = fs->dados[fs->inicio];
-    fs->inicio    = (fs->inicio + 1) % fs->capacidade;  /* avança circularmente */
+    fs->inicio    = (fs->inicio + 1) % fs->capacidade;
     fs->tamanho--;
     return removido;
 }
@@ -110,8 +117,8 @@ void clearFila(Fila F, void (*destroiItem)(Item)) {
         }
     }
 
-    fs->inicio   = 0;
-    fs->tamanho  = 0;
+    fs->inicio  = 0;
+    fs->tamanho = 0;
 }
 
 /* ── destroiFila ── */
@@ -127,6 +134,6 @@ void destroiFila(Fila F, void (*destroiItem)(Item)) {
         }
     }
 
-    free(fs->dados);
+    /* Não há `free(fs->dados)`: o array é parte da struct. */
     free(fs);
 }
