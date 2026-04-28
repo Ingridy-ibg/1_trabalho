@@ -4,6 +4,9 @@
 #include <math.h>
 #include "linha.h"
 
+/* Espessura visual default das linhas (sobrescrita por pol em hachuras). */
+#define LINHA_SW_DEFAULT 1.0
+
 typedef struct LinhaStruct {
     int    id;
     double x1;
@@ -11,6 +14,7 @@ typedef struct LinhaStruct {
     double x2;
     double y2;
     char  *cor;
+    double stroke_width;   /* espessura visual (SVG stroke-width)       */
 } LinhaStruct;
 
 static char *dupString(const char *s) {
@@ -39,11 +43,12 @@ Linha criaLinha(int id, double x1, double y1, double x2, double y2,
         return NULL;
     }
 
-    l->id = id;
-    l->x1 = x1;
-    l->y1 = y1;
-    l->x2 = x2;
-    l->y2 = y2;
+    l->id           = id;
+    l->x1           = x1;
+    l->y1           = y1;
+    l->x2           = x2;
+    l->y2           = y2;
+    l->stroke_width = LINHA_SW_DEFAULT;
     return (Linha)l;
 }
 
@@ -84,6 +89,16 @@ const char *getCorLinha(Linha l) {
     return ((LinhaStruct *)l)->cor;
 }
 
+double getStrokeWidthLinha(Linha l) {
+    if (l == NULL) return LINHA_SW_DEFAULT;
+    return ((LinhaStruct *)l)->stroke_width;
+}
+
+void setStrokeWidthLinha(Linha l, double sw) {
+    if (l == NULL || sw <= 0.0) return;
+    ((LinhaStruct *)l)->stroke_width = sw;
+}
+
 void transladaLinha(Linha l, double dx, double dy) {
     if (l == NULL) return;
     LinhaStruct *ls = (LinhaStruct *)l;
@@ -112,19 +127,16 @@ bool contemPontoLinha(Linha l, double px, double py) {
     double dy = ls->y2 - ls->y1;
     double len_sq = dx * dx + dy * dy;
     if (len_sq == 0.0) {
-        // Linha degenerada (ponto), verificar se px,py == x1,y1
         return fabs(px - ls->x1) < 1e-6 && fabs(py - ls->y1) < 1e-6;
     }
 
-    // Projeção do ponto na linha
     double t = ((px - ls->x1) * dx + (py - ls->y1) * dy) / len_sq;
     if (t < 0.0 || t > 1.0) return false;
 
-    // Distância perpendicular
     double proj_x = ls->x1 + t * dx;
     double proj_y = ls->y1 + t * dy;
     double dist = hypot(px - proj_x, py - proj_y);
-    return dist < 1e-6; // Tolerância
+    return dist < 1e-6;
 }
 
 bool dentroRegiaoLinha(Linha l, double rx, double ry,

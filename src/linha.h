@@ -11,6 +11,11 @@ typedef void *Linha;
 
 /**
  * @brief Cria uma nova linha com os parâmetros fornecidos.
+ *
+ * A espessura visual (stroke-width) é inicializada com o valor default
+ * (1.0). Use setStrokeWidthLinha para ajustá-la (ex.: linhas de
+ * preenchimento de polígono usam d/4 para parecer hachura).
+ *
  * @param id   Identificador inteiro único da linha.
  * @param x1   Coordenada x do ponto inicial da linha.
  * @param y1   Coordenada y do ponto inicial da linha.
@@ -70,6 +75,24 @@ double getY2Linha(Linha l);
  * @return String com a cor da linha. Retorna NULL se l for NULL.
  */
 const char *getCorLinha(Linha l);
+
+/**
+ * @brief Retorna a espessura visual (stroke-width) da linha.
+ * @param l Ponteiro para a linha.
+ * @return Espessura em unidades do plano. Retorna 1.0 (default) se l for NULL.
+ */
+double getStrokeWidthLinha(Linha l);
+
+/**
+ * @brief Define a espessura visual (stroke-width) da linha.
+ *
+ * Usado pelo comando pol para diferenciar bordas (mais grossas) e
+ * linhas de preenchimento (mais finas, proporcionais a d).
+ *
+ * @param l  Ponteiro para a linha.
+ * @param sw Nova espessura em unidades do plano. Deve ser > 0.
+ */
+void setStrokeWidthLinha(Linha l, double sw);
 
 /**
  * @brief Translada a linha somando dx e dy a ambos os pontos.

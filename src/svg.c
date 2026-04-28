@@ -29,7 +29,6 @@
 #define X_BRACO          5.0   /* metade do comprimento do braço do x */
 #define X_SW             1.5   /* stroke-width do x de remoção        */
 #define SEL_SW           1.5   /* stroke-width da borda de seleção    */
-#define LINHA_SW         "0.3" /* espessura das linhas (bordas+hachuras) */
 
 /* ─────────────────────────────────────────────
    Bounding-box
@@ -77,7 +76,6 @@ static BBox calculaBBox(Formas fs) {
         p = getProximaForma(fs, p);
     }
 
-    /* Banco vazio: janela mínima */
     if (bb.xmin >= bb.xmax) { bb.xmin = 0; bb.xmax = 200; }
     if (bb.ymin >= bb.ymax) { bb.ymin = 0; bb.ymax = 200; }
     return bb;
@@ -87,14 +85,12 @@ static BBox calculaBBox(Formas fs) {
    Helpers de conversão de atributos de texto
    ───────────────────────────────────────────── */
 
-/* Âncora 'i','m','f' → text-anchor SVG */
 static const char *ancoraParaSvg(char a) {
     if (a == 'm') return "middle";
     if (a == 'f') return "end";
     return "start";
 }
 
-/* Peso "n","b","b+","l" → font-weight SVG */
 static const char *pesoParaSvg(const char *w) {
     if (w == NULL)            return "normal";
     if (strcmp(w, "b")  == 0) return "bold";
@@ -103,7 +99,6 @@ static const char *pesoParaSvg(const char *w) {
     return "normal";
 }
 
-/* Família "sans","serif","cursive" → font-family SVG */
 static const char *familiaParaSvg(const char *f) {
     if (f == NULL)               return "sans-serif";
     if (strcmp(f, "sans")  == 0) return "sans-serif";
@@ -187,12 +182,13 @@ void svgEscreveFormas(FILE *f, Formas fs) {
                 "   <line id=\"%d\""
                 " x1=\"%.6f\" y1=\"%.6f\""
                 " x2=\"%.6f\" y2=\"%.6f\""
-                " stroke=\"%s\" stroke-width=\"" LINHA_SW "\""
+                " stroke=\"%s\" stroke-width=\"%.4f\""
                 " stroke-opacity=\"1.000000\"/>\n",
                 id,
                 getX1Linha(d), getY1Linha(d),
                 getX2Linha(d), getY2Linha(d),
-                getCorLinha(d));
+                getCorLinha(d),
+                getStrokeWidthLinha(d));
 
         } else if (strcmp(tipo, "texto") == 0) {
             double fsize = getSizeTexto(d);
@@ -219,7 +215,6 @@ void svgEscreveFormas(FILE *f, Formas fs) {
 
 /* ─────────────────────────────────────────────
    svgEscreveForma  (escreve uma única forma por id)
-   Usado por cmd_pol para gravar linhas no SVG à medida que as insere.
    ───────────────────────────────────────────── */
 
 void svgEscreveForma(FILE *f, Formas fs, int id) {
@@ -235,14 +230,14 @@ void svgEscreveForma(FILE *f, Formas fs, int id) {
             "   <line id=\"%d\""
             " x1=\"%.6f\" y1=\"%.6f\""
             " x2=\"%.6f\" y2=\"%.6f\""
-            " stroke=\"%s\" stroke-width=\"" LINHA_SW "\""
+            " stroke=\"%s\" stroke-width=\"%.4f\""
             " stroke-opacity=\"1.000000\"/>\n",
             id,
             getX1Linha(d), getY1Linha(d),
             getX2Linha(d), getY2Linha(d),
-            getCorLinha(d));
+            getCorLinha(d),
+            getStrokeWidthLinha(d));
     }
-    /* outros tipos podem ser adicionados se pol gerar mais formas */
 }
 
 /* ─────────────────────────────────────────────
@@ -252,7 +247,6 @@ void svgEscreveForma(FILE *f, Formas fs, int id) {
 void svgSel(FILE *f, Formas fs, double x, double y, double w, double h) {
     if (f == NULL || fs == NULL) return;
 
-    /* Retângulo pontilhado delimitando a região de seleção */
     fprintf(f,
         "   <!-- sel -->\n"
         "   <rect x=\"%.4f\" y=\"%.4f\" width=\"%.4f\" height=\"%.4f\""
@@ -260,7 +254,6 @@ void svgSel(FILE *f, Formas fs, double x, double y, double w, double h) {
         " stroke-dasharray=\"5,3\" stroke-width=\"%.1f\"/>\n",
         x, y, w, h, SEL_SW);
 
-    /* Anel em cada âncora selecionada */
     PosicForma p = getPrimeiraForma(fs);
     while (p != NULL) {
         if (isFormaSelecionada(fs, p)) {

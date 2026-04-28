@@ -153,6 +153,7 @@ static bool intersecao_h(double x1, double y1, double x2, double y2,
  * @param n_fills_out   saída: número de linhas de preenchimento inseridas
  * @return true se executou com sucesso, false se polígono inválido (<3 pts).
  */
+
 static bool executa_pol(Formas fs, int p, int id_inicio, double d,
                         const char *corb, const char *corp,
                         int *n_bordas_out, int *n_fills_out) {
@@ -162,14 +163,26 @@ static bool executa_pol(Formas fs, int p, int id_inicio, double d,
     /* Polígono precisa de pelo menos 3 vértices */
     if (!getPontosPoligono(p, xs, ys, &n) || n < 3) return false;
 
+    /* Espessuras visuais relativas a d:
+       borda  = d/2  (mais grossa, igual à figura do PDF)
+       hachura = d/4 (fina, deixa gap visível entre as linhas)         */
+    const double sw_borda  = d / 2.0;
+    const double sw_hachura = d / 4.0;
+
     int prox_id = id_inicio;
 
     /* ── Bordas: n lados fechando o polígono ── */
     for (int i = 0; i < n; i++) {
         int j = (i + 1) % n;
+        int novo_id = prox_id;
         if (!insereLinha(fs, prox_id++,
                          xs[i], ys[i], xs[j], ys[j], corb))
             return false;
+
+        /* Ajusta a espessura visual da borda */
+        PosicForma pf = buscaFormaPorId(fs, novo_id);
+        if (pf != NULL)
+            setStrokeWidthLinha((Linha)getDadosForma(fs, pf), sw_borda);
     }
     int n_bordas = n;
 
@@ -196,9 +209,16 @@ static bool executa_pol(Formas fs, int p, int id_inicio, double d,
         qsort(xis, ni, sizeof(double), cmp_double);
 
         for (int k = 0; k + 1 < ni; k += 2) {
+            int novo_id = prox_id;
             if (!insereLinha(fs, prox_id++,
                              xis[k], yscan, xis[k+1], yscan, corp))
                 return false;
+
+            /* Ajusta a espessura visual da hachura */
+            PosicForma pf = buscaFormaPorId(fs, novo_id);
+            if (pf != NULL)
+                setStrokeWidthLinha((Linha)getDadosForma(fs, pf), sw_hachura);
+
             n_fills++;
         }
     }

@@ -6,13 +6,6 @@
  *
  * A API de Args (parseArgs, destroiArgs, getters) é implementada em args.c.
  * O int main() é implementado em main.c.
- * ...
- */
-
-/**
- * @file main.h
- * @brief Ponto de entrada e parsing de argumentos do programa TED.
- *
  * O main coordena os três módulos de processamento:
  *   processadorGEO → lê o .geo e popula o banco de formas
  *   svg            → gera os arquivos .svg
