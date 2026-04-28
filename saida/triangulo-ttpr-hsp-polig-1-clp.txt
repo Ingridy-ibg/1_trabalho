@@ -1,6 +1,7 @@
-inp 2 10: (115.0000, 60.0000) texto
-inp 2 11: (32.5000, 107.6314) texto
-inp 2 12: (32.5000, 12.3686) texto
-inp 2 10: (115.0000, 60.0000) texto
-inp 2 11: (32.5000, 107.6314) texto
-inp 2 12: (32.5000, 12.3686) texto
+inp 2 10: (115.0000, 60.0000) texto x=115.0000 y=60.0000 ancora=m txto=Que te amam eternamente
+inp 2 11: (32.5000, 107.6314) texto x=32.5000 y=107.6314 ancora=m txto=De Sao Paulo tens o nome
+inp 2 12: (32.5000, 12.3686) texto x=32.5000 y=12.3686 ancora=m txto=Que ostentas dignamente
+inp 2 10: (115.0000, 60.0000) texto x=115.0000 y=60.0000 ancora=m txto=Que te amam eternamente
+inp 2 11: (32.5000, 107.6314) texto x=32.5000 y=107.6314 ancora=m txto=De Sao Paulo tens o nome
+inp 2 12: (32.5000, 12.3686) texto x=32.5000 y=12.3686 ancora=m txto=Que ostentas dignamente
+pol 2: 3 lados + 127 linhas preenchimento = 130 linhas inseridas (ids 22..151)

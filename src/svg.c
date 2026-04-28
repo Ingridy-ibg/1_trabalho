@@ -29,6 +29,7 @@
 #define X_BRACO          5.0   /* metade do comprimento do braço do x */
 #define X_SW             1.5   /* stroke-width do x de remoção        */
 #define SEL_SW           1.5   /* stroke-width da borda de seleção    */
+#define LINHA_SW         "0.3" /* espessura das linhas (bordas+hachuras) */
 
 /* ─────────────────────────────────────────────
    Bounding-box
@@ -186,7 +187,7 @@ void svgEscreveFormas(FILE *f, Formas fs) {
                 "   <line id=\"%d\""
                 " x1=\"%.6f\" y1=\"%.6f\""
                 " x2=\"%.6f\" y2=\"%.6f\""
-                " stroke=\"%s\" stroke-width=\"2\""
+                " stroke=\"%s\" stroke-width=\"" LINHA_SW "\""
                 " stroke-opacity=\"1.000000\"/>\n",
                 id,
                 getX1Linha(d), getY1Linha(d),
@@ -226,8 +227,6 @@ void svgEscreveForma(FILE *f, Formas fs, int id) {
     PosicForma pos = buscaFormaPorId(fs, id);
     if (pos == NULL) return;
 
-    /* Reutiliza a lógica de svgEscreveFormas para um único elemento.
-       Fazemos isso iterando manualmente para não duplicar código. */
     const char *tipo = getTipoForma(fs, pos);
     void       *d    = getDadosForma(fs, pos);
 
@@ -236,7 +235,7 @@ void svgEscreveForma(FILE *f, Formas fs, int id) {
             "   <line id=\"%d\""
             " x1=\"%.6f\" y1=\"%.6f\""
             " x2=\"%.6f\" y2=\"%.6f\""
-            " stroke=\"%s\" stroke-width=\"2\""
+            " stroke=\"%s\" stroke-width=\"" LINHA_SW "\""
             " stroke-opacity=\"1.000000\"/>\n",
             id,
             getX1Linha(d), getY1Linha(d),

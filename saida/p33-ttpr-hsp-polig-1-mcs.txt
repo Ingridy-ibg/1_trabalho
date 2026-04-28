@@ -1,36 +1,37 @@
-inp 2 10: (115.0000, 60.0000) texto
-inp 2 11: (114.0061, 70.4088) texto
-inp 2 12: (111.0602, 80.4414) texto
-inp 2 13: (106.2689, 89.7352) texto
-inp 2 14: (99.8054, 97.9543) texto
-inp 2 15: (91.9031, 104.8017) texto
-inp 2 16: (82.8478, 110.0298) texto
-inp 2 17: (72.9667, 113.4496) texto
-inp 2 18: (62.6170, 114.9377) texto
-inp 2 19: (52.1727, 114.4402) texto
-inp 2 20: (42.0113, 111.9750) texto
-inp 2 21: (32.5000, 107.6314) texto
-inp 2 22: (23.9827, 101.5662) texto
-inp 2 23: (16.7671, 93.9987) texto
-inp 2 24: (11.1141, 85.2025) texto
-inp 2 25: (7.2279, 75.4953) texto
-inp 2 26: (5.2490, 65.2281) texto
-inp 2 27: (5.2490, 54.7719) texto
-inp 2 28: (7.2279, 44.5047) texto
-inp 2 29: (11.1141, 34.7975) texto
-inp 2 30: (16.7671, 26.0013) texto
-inp 2 31: (23.9827, 18.4338) texto
-inp 2 32: (32.5000, 12.3686) texto
-inp 2 33: (42.0113, 8.0250) texto
-inp 2 34: (52.1727, 5.5598) texto
-inp 2 35: (62.6170, 5.0623) texto
-inp 2 36: (72.9667, 6.5504) texto
-inp 2 37: (82.8478, 9.9702) texto
-inp 2 38: (91.9031, 15.1983) texto
-inp 2 39: (99.8054, 22.0457) texto
-inp 2 40: (106.2689, 30.2648) texto
-inp 2 41: (111.0602, 39.5586) texto
-inp 2 42: (114.0061, 49.5912) texto
+inp 2 10: (115.0000, 60.0000) texto x=115.0000 y=60.0000 ancora=m txto=Oh, Tricolor
+inp 2 11: (114.0061, 70.4088) texto x=114.0061 y=70.4088 ancora=m txto=Clube bem amado
+inp 2 12: (111.0602, 80.4414) texto x=111.0602 y=80.4414 ancora=m txto=As tuas gloriasVem do passado
+inp 2 13: (106.2689, 89.7352) texto x=106.2689 y=89.7352 ancora=m txto=Sao teus guias brasileiros
+inp 2 14: (99.8054, 97.9543) texto x=99.8054 y=97.9543 ancora=m txto=Que te amam eternamente
+inp 2 15: (91.9031, 104.8017) texto x=91.9031 y=104.8017 ancora=m txto=De Sao Paulo tens o nome
+inp 2 16: (82.8478, 110.0298) texto x=82.8478 y=110.0298 ancora=m txto=Que ostentas dignamente
+inp 2 17: (72.9667, 113.4496) texto x=72.9667 y=113.4496 ancora=m txto=De Sao Paulo tens o nome
+inp 2 18: (62.6170, 114.9377) texto x=62.6170 y=114.9377 ancora=m txto=Que ostentas dignamente
+inp 2 19: (52.1727, 114.4402) texto x=52.1727 y=114.4402 ancora=m txto=Salve o tricolor paulista
+inp 2 20: (42.0113, 111.9750) texto x=42.0113 y=111.9750 ancora=m txto=Amado clube brasileiro
+inp 2 21: (32.5000, 107.6314) texto x=32.5000 y=107.6314 ancora=m txto=Tu es forte, tu es grande
+inp 2 22: (23.9827, 101.5662) texto x=23.9827 y=101.5662 ancora=m txto=Dentre os grandes es o primeiro
+inp 2 23: (16.7671, 93.9987) texto x=16.7671 y=93.9987 ancora=m txto=Tu es forte, tu es grande
+inp 2 24: (11.1141, 85.2025) texto x=11.1141 y=85.2025 ancora=m txto=Dentre os grandes es o primeiro
+inp 2 25: (7.2279, 75.4953) texto x=7.2279 y=75.4953 ancora=m txto=Oh, Tricolor
+inp 2 26: (5.2490, 65.2281) texto x=5.2490 y=65.2281 ancora=m txto=Clube bem amado
+inp 2 27: (5.2490, 54.7719) texto x=5.2490 y=54.7719 ancora=m txto=As tuas gloriasVem do passado
+inp 2 28: (7.2279, 44.5047) texto x=7.2279 y=44.5047 ancora=m txto=Sao teus guias brasileiros
+inp 2 29: (11.1141, 34.7975) texto x=11.1141 y=34.7975 ancora=m txto=Que te amam eternamente
+inp 2 30: (16.7671, 26.0013) texto x=16.7671 y=26.0013 ancora=m txto=De Sao Paulo tens o nome
+inp 2 31: (23.9827, 18.4338) texto x=23.9827 y=18.4338 ancora=m txto=Que ostentas dignamente
+inp 2 32: (32.5000, 12.3686) texto x=32.5000 y=12.3686 ancora=m txto=De Sao Paulo tens o nome
+inp 2 33: (42.0113, 8.0250) texto x=42.0113 y=8.0250 ancora=m txto=Que ostentas dignamente
+inp 2 34: (52.1727, 5.5598) texto x=52.1727 y=5.5598 ancora=m txto=Salve o tricolor paulista
+inp 2 35: (62.6170, 5.0623) texto x=62.6170 y=5.0623 ancora=m txto=Amado clube brasileiro
+inp 2 36: (72.9667, 6.5504) texto x=72.9667 y=6.5504 ancora=m txto=Tu es forte, tu es grande
+inp 2 37: (82.8478, 9.9702) texto x=82.8478 y=9.9702 ancora=m txto=Dentre os grandes es o primeiro
+inp 2 38: (91.9031, 15.1983) texto x=91.9031 y=15.1983 ancora=m txto=Tu es forte, tu es grande
+inp 2 39: (99.8054, 22.0457) texto x=99.8054 y=22.0457 ancora=m txto=Dentre os grandes es o primeiro
+inp 2 40: (106.2689, 30.2648) texto x=106.2689 y=30.2648 ancora=m txto=Oh, Tricolor
+inp 2 41: (111.0602, 39.5586) texto x=111.0602 y=39.5586 ancora=m txto=Clube bem amado
+inp 2 42: (114.0061, 49.5912) texto x=114.0061 y=49.5912 ancora=m txto=As tuas gloriasVem do passado
+pol 2: 33 lados + 146 linhas preenchimento = 179 linhas inseridas (ids 52..230)
 10 texto
 11 texto
 12 texto

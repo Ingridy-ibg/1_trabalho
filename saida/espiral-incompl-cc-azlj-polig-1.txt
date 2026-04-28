@@ -1,20 +1,21 @@
-inp 2 10: (140.0000, 65.0000) circulo
-inp 2 11: (130.3092, 93.1815) circulo
-inp 2 12: (109.7675, 112.8534) circulo
-inp 2 13: (83.7955, 120.5328) circulo
-inp 2 14: (58.5294, 115.6913) circulo
-inp 2 15: (39.3795, 100.6205) circulo
-inp 2 16: (29.8724, 79.6629) circulo
-inp 2 17: (31.0232, 58.0348) circulo
-inp 2 18: (41.3449, 40.5481) circulo
-inp 2 19: (57.4419, 30.5403) circulo
-inp 2 20: (60.3929, 36.3319) circulo
-inp 2 21: (46.6035, 44.3687) circulo
-inp 2 22: (37.4432, 59.0516) circulo
-inp 2 23: (36.0542, 77.6542) circulo
-inp 2 24: (43.9757, 96.0243) circulo
-inp 2 25: (60.5380, 109.5094) circulo
-inp 2 26: (82.7787, 114.1128) circulo
-inp 2 27: (105.9469, 107.5947) circulo
-inp 2 28: (124.5177, 90.2305) circulo
-inp 2 29: (133.5000, 65.0000) circulo
+inp 2 10: (140.0000, 65.0000) circulo x=140.0000 y=65.0000 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 11: (130.3092, 93.1815) circulo x=130.3092 y=93.1815 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 12: (109.7675, 112.8534) circulo x=109.7675 y=112.8534 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 13: (83.7955, 120.5328) circulo x=83.7955 y=120.5328 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 14: (58.5294, 115.6913) circulo x=58.5294 y=115.6913 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 15: (39.3795, 100.6205) circulo x=39.3795 y=100.6205 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 16: (29.8724, 79.6629) circulo x=29.8724 y=79.6629 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 17: (31.0232, 58.0348) circulo x=31.0232 y=58.0348 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 18: (41.3449, 40.5481) circulo x=41.3449 y=40.5481 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 19: (57.4419, 30.5403) circulo x=57.4419 y=30.5403 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 20: (60.3929, 36.3319) circulo x=60.3929 y=36.3319 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 21: (46.6035, 44.3687) circulo x=46.6035 y=44.3687 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 22: (37.4432, 59.0516) circulo x=37.4432 y=59.0516 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 23: (36.0542, 77.6542) circulo x=36.0542 y=77.6542 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 24: (43.9757, 96.0243) circulo x=43.9757 y=96.0243 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 25: (60.5380, 109.5094) circulo x=60.5380 y=109.5094 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 26: (82.7787, 114.1128) circulo x=82.7787 y=114.1128 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 27: (105.9469, 107.5947) circulo x=105.9469 y=107.5947 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 28: (124.5177, 90.2305) circulo x=124.5177 y=90.2305 r=10.0000 corb=#002255 corp=#FFCCAA
+inp 2 29: (133.5000, 65.0000) circulo x=133.5000 y=65.0000 r=10.0000 corb=#002255 corp=#FFCCAA
+pol 2: 20 lados + 185 linhas preenchimento = 205 linhas inseridas (ids 39..243)

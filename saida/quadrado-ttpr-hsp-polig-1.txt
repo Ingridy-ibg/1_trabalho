@@ -1,8 +1,9 @@
-inp 2 10: (115.0000, 60.0000) texto
-inp 2 11: (98.8909, 98.8909) texto
-inp 2 12: (60.0000, 115.0000) texto
-inp 2 13: (21.1091, 98.8909) texto
-inp 2 14: (5.0000, 60.0000) texto
-inp 2 15: (21.1091, 21.1091) texto
-inp 2 16: (60.0000, 5.0000) texto
-inp 2 17: (98.8909, 21.1091) texto
+inp 2 10: (115.0000, 60.0000) texto x=115.0000 y=60.0000 ancora=m txto=De Sao Paulo tens o nome
+inp 2 11: (98.8909, 98.8909) texto x=98.8909 y=98.8909 ancora=m txto=Que ostentas dignamente
+inp 2 12: (60.0000, 115.0000) texto x=60.0000 y=115.0000 ancora=m txto=Salve o tricolor paulista
+inp 2 13: (21.1091, 98.8909) texto x=21.1091 y=98.8909 ancora=m txto=Amado clube brasileiro
+inp 2 14: (5.0000, 60.0000) texto x=5.0000 y=60.0000 ancora=m txto=Tu es forte, tu es grande
+inp 2 15: (21.1091, 21.1091) texto x=21.1091 y=21.1091 ancora=m txto=Dentre os grandes es o primeiro
+inp 2 16: (60.0000, 5.0000) texto x=60.0000 y=5.0000 ancora=m txto=Tu es forte, tu es grande
+inp 2 17: (98.8909, 21.1091) texto x=98.8909 y=21.1091 ancora=m txto=Dentre os grandes es o primeiro
+pol 2: 8 lados + 146 linhas preenchimento = 154 linhas inseridas (ids 27..180)

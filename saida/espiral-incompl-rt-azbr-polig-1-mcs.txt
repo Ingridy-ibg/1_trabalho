@@ -1,23 +1,24 @@
-inp 2 10: (140.0000, 65.0000) retangulo
-inp 2 11: (130.3092, 93.1815) retangulo
-inp 2 12: (109.7675, 112.8534) retangulo
-inp 2 13: (83.7955, 120.5328) retangulo
-inp 2 14: (58.5294, 115.6913) retangulo
-inp 2 15: (39.3795, 100.6205) retangulo
-inp 2 16: (29.8724, 79.6629) retangulo
-inp 2 17: (31.0232, 58.0348) retangulo
-inp 2 18: (41.3449, 40.5481) retangulo
-inp 2 19: (57.4419, 30.5403) retangulo
-inp 2 20: (60.3929, 36.3319) retangulo
-inp 2 21: (46.6035, 44.3687) retangulo
-inp 2 22: (37.4432, 59.0516) retangulo
-inp 2 23: (36.0542, 77.6542) retangulo
-inp 2 24: (43.9757, 96.0243) retangulo
-inp 2 25: (60.5380, 109.5094) retangulo
-inp 2 26: (82.7787, 114.1128) retangulo
-inp 2 27: (105.9469, 107.5947) retangulo
-inp 2 28: (124.5177, 90.2305) retangulo
-inp 2 29: (133.5000, 65.0000) retangulo
+inp 2 10: (140.0000, 65.0000) retangulo x=140.0000 y=65.0000 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 11: (130.3092, 93.1815) retangulo x=130.3092 y=93.1815 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 12: (109.7675, 112.8534) retangulo x=109.7675 y=112.8534 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 13: (83.7955, 120.5328) retangulo x=83.7955 y=120.5328 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 14: (58.5294, 115.6913) retangulo x=58.5294 y=115.6913 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 15: (39.3795, 100.6205) retangulo x=39.3795 y=100.6205 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 16: (29.8724, 79.6629) retangulo x=29.8724 y=79.6629 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 17: (31.0232, 58.0348) retangulo x=31.0232 y=58.0348 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 18: (41.3449, 40.5481) retangulo x=41.3449 y=40.5481 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 19: (57.4419, 30.5403) retangulo x=57.4419 y=30.5403 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 20: (60.3929, 36.3319) retangulo x=60.3929 y=36.3319 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 21: (46.6035, 44.3687) retangulo x=46.6035 y=44.3687 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 22: (37.4432, 59.0516) retangulo x=37.4432 y=59.0516 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 23: (36.0542, 77.6542) retangulo x=36.0542 y=77.6542 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 24: (43.9757, 96.0243) retangulo x=43.9757 y=96.0243 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 25: (60.5380, 109.5094) retangulo x=60.5380 y=109.5094 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 26: (82.7787, 114.1128) retangulo x=82.7787 y=114.1128 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 27: (105.9469, 107.5947) retangulo x=105.9469 y=107.5947 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 28: (124.5177, 90.2305) retangulo x=124.5177 y=90.2305 w=5.0000 h=6.0000 corb=blue corp=white
+inp 2 29: (133.5000, 65.0000) retangulo x=133.5000 y=65.0000 w=5.0000 h=6.0000 corb=blue corp=white
+pol 2: 20 lados + 185 linhas preenchimento = 205 linhas inseridas (ids 39..243)
 16 retangulo
 17 retangulo
 18 retangulo

@@ -1,15 +1,16 @@
-inp 2 10: (115.0000, 60.0000) texto
-inp 2 11: (101.1095, 78.3031) texto
-inp 2 12: (96.8022, 100.8730) texto
-inp 2 13: (73.9058, 102.7975) texto
-inp 2 14: (54.2509, 114.6987) texto
-inp 2 15: (37.5000, 98.9711) texto
-inp 2 16: (15.5041, 92.3282) texto
-inp 2 17: (15.9834, 69.3560) texto
-inp 2 18: (6.2019, 48.5649) texto
-inp 2 19: (23.5942, 33.5497) texto
-inp 2 20: (32.5000, 12.3686) texto
-inp 2 21: (55.2962, 15.2465) texto
-inp 2 22: (76.9959, 7.6919) texto
-inp 2 23: (90.1109, 26.5585) texto
-inp 2 24: (110.2450, 37.6295) texto
+inp 2 10: (115.0000, 60.0000) texto x=115.0000 y=60.0000 ancora=m txto=Sao teus guias brasileiros
+inp 2 11: (101.1095, 78.3031) texto x=101.1095 y=78.3031 ancora=m txto=Que te amam eternamente
+inp 2 12: (96.8022, 100.8730) texto x=96.8022 y=100.8730 ancora=m txto=De Sao Paulo tens o nome
+inp 2 13: (73.9058, 102.7975) texto x=73.9058 y=102.7975 ancora=m txto=Que ostentas dignamente
+inp 2 14: (54.2509, 114.6987) texto x=54.2509 y=114.6987 ancora=m txto=De Sao Paulo tens o nome
+inp 2 15: (37.5000, 98.9711) texto x=37.5000 y=98.9711 ancora=m txto=Que ostentas dignamente
+inp 2 16: (15.5041, 92.3282) texto x=15.5041 y=92.3282 ancora=m txto=Salve o tricolor paulista
+inp 2 17: (15.9834, 69.3560) texto x=15.9834 y=69.3560 ancora=m txto=Amado clube brasileiro
+inp 2 18: (6.2019, 48.5649) texto x=6.2019 y=48.5649 ancora=m txto=Tu es forte, tu es grande
+inp 2 19: (23.5942, 33.5497) texto x=23.5942 y=33.5497 ancora=m txto=Dentre os grandes es o primeiro
+inp 2 20: (32.5000, 12.3686) texto x=32.5000 y=12.3686 ancora=m txto=Tu es forte, tu es grande
+inp 2 21: (55.2962, 15.2465) texto x=55.2962 y=15.2465 ancora=m txto=Dentre os grandes es o primeiro
+inp 2 22: (76.9959, 7.6919) texto x=76.9959 y=7.6919 ancora=m txto=Oh, Tricolor
+inp 2 23: (90.1109, 26.5585) texto x=90.1109 y=26.5585 ancora=m txto=Clube bem amado
+inp 2 24: (110.2450, 37.6295) texto x=110.2450 y=37.6295 ancora=m txto=As tuas gloriasVem do passado
+pol 2: 15 lados + 146 linhas preenchimento = 161 linhas inseridas (ids 34..194)
