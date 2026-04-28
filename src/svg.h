@@ -15,20 +15,6 @@
  *       sel  → retângulo pontilhado vermelho + anel nas âncoras
  *       dels → "x" vermelho na âncora de cada forma removida
  *
- * Fluxo de uso esperado pelo main:
- * @code
- *   FILE *f = fopen("saida.svg", "w");
- *   svgInicia(f, fs);           // cabeçalho + viewBox automático
- *   svgEscreveFormas(f, fs);    // todas as formas do banco
- *   // ... comandos qry emitem marcações via svgSel / svgDels ...
- *   svgFinaliza(f);             // </svg>
- *   fclose(f);
- * @endcode
- *
- * Nota sobre coordenadas:
- *   Todas as funções deste módulo recebem coordenadas no plano cartesiano
- *   (.geo / .qry). A conversão para SVG é feita internamente usando o
- *   bounding-box calculado em svgInicia().
  */
 
 #include <stdio.h>
@@ -47,8 +33,6 @@
  * Registra internamente a altura e o ymin do viewport para que as
  * demais funções possam converter coordenadas.
  *
- * Deve ser chamada uma única vez por arquivo, antes de qualquer outra
- * função deste módulo que escreva no mesmo FILE*.
  *
  * @param f  Arquivo SVG aberto para escrita (não pode ser NULL).
  * @param fs Banco de formas (usado para calcular o bounding-box).
@@ -121,6 +105,7 @@ void svgSel(FILE *f, Formas fs, double x, double y, double w, double h);
  */
 void svgDels(FILE *f, double ax, double ay);
 
-void svgEscreveForma(FILE *f, Formas fs, int id);
+
+
 
 #endif /* SVG_H */

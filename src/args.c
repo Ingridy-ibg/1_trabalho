@@ -15,10 +15,6 @@
 
 #include "main.h"
 
-/* ─────────────────────────────────────────────
-   Estrutura interna (proibida no .h)
-   ───────────────────────────────────────────── */
-
 typedef struct ArgsStruct {
     char base_entrada[MAX_PATH];  /**< -e  Diretório-base de entrada. Padrão: "."  */
     char arq_geo[MAX_PATH];       /**< -f  Nome do arquivo .geo (obrigatório)       */

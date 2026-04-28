@@ -8,9 +8,6 @@
 #include "linha.h"
 #include "texto.h"
 
-/* ─────────────────────────────────────────────
-   Tipos internos (proibido expor no .h)
-   ───────────────────────────────────────────── */
 
 typedef enum {
     TIPO_CIRCULO,
@@ -329,7 +326,7 @@ int totalFormasSelecionadas(Formas fs) {
 }
 
 /* ─────────────────────────────────────────────
-   dels e mcs — agora iteram a Lista selecionadas
+   dels e mcs 
    ───────────────────────────────────────────── */
 
 void removeFormasSelecionadas(Formas fs) {

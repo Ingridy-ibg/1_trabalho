@@ -2,22 +2,13 @@
 #include <stdbool.h>
 #include "fila.h"
 
-/* ─────────────────────────────────────────────
-   Capacidade máxima do array estático interno.
-   A fila lógica pode ter capacidade ≤ FILA_CAPACIDADE_MAX,
-   definida em criaFila. Para os polígonos do trabalho,
-   200 é suficiente (MAX_PONTOS_POLIGONO).
-   ───────────────────────────────────────────── */
+/*obs: A descricao do projeto pede a implementacao da fila de forma estatica, mas nao diz
+qual deve ser sua capacidade.
+Fiz com 200 de capcidade maxima pois acredito ser uma margem segura para as funcionalidades do
+projeto.
+Caso seja insuficiente, a capacidade pode ser ajustada conforme necessário. */
 
 #define FILA_CAPACIDADE_MAX 200
-
-/* ─────────────────────────────────────────────
-   Estrutura interna (proibido expor no .h)
-   Implementação ESTÁTICA circular:
-   o array `dados` tem tamanho fixo definido em
-   tempo de compilação — sem alocação dinâmica
-   para o conteúdo da fila.
-   ───────────────────────────────────────────── */
 
 typedef struct FilaStruct {
     Item dados[FILA_CAPACIDADE_MAX];  /* array estático de itens */

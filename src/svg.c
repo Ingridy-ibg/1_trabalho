@@ -213,32 +213,6 @@ void svgEscreveFormas(FILE *f, Formas fs) {
     }
 }
 
-/* ─────────────────────────────────────────────
-   svgEscreveForma  (escreve uma única forma por id)
-   ───────────────────────────────────────────── */
-
-void svgEscreveForma(FILE *f, Formas fs, int id) {
-    if (f == NULL || fs == NULL) return;
-    PosicForma pos = buscaFormaPorId(fs, id);
-    if (pos == NULL) return;
-
-    const char *tipo = getTipoForma(fs, pos);
-    void       *d    = getDadosForma(fs, pos);
-
-    if (strcmp(tipo, "linha") == 0) {
-        fprintf(f,
-            "   <line id=\"%d\""
-            " x1=\"%.6f\" y1=\"%.6f\""
-            " x2=\"%.6f\" y2=\"%.6f\""
-            " stroke=\"%s\" stroke-width=\"%.4f\""
-            " stroke-opacity=\"1.000000\"/>\n",
-            id,
-            getX1Linha(d), getY1Linha(d),
-            getX2Linha(d), getY2Linha(d),
-            getCorLinha(d),
-            getStrokeWidthLinha(d));
-    }
-}
 
 /* ─────────────────────────────────────────────
    svgSel

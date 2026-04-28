@@ -1,22 +1,5 @@
 #ifndef MAIN_H
 #define MAIN_H
-/**
- * @file main.h
- * @brief Declarações do programa TED — entry point e API de argumentos.
- *
- * A API de Args (parseArgs, destroiArgs, getters) é implementada em args.c.
- * O int main() é implementado em main.c.
- * O main coordena os três módulos de processamento:
- *   processadorGEO → lê o .geo e popula o banco de formas
- *   svg            → gera os arquivos .svg
- *   processadorQRY → lê o .qry e gera o .svg e .txt de consultas
- *
- * Arquivos produzidos conforme a tabela do enunciado:
- *   Só -f           →  BSD/arq.svg
- *   -f e -q         →  BSD/arq.svg
- *                       BSD/arq-qry.svg
- *                       BSD/arq-qry.txt
- */
 
 #include <stdbool.h>
 
