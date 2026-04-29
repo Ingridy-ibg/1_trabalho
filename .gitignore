@@ -1,6 +1,121 @@
-*.otest/t_lista
-*.otest/t_fila
-*.otest/t_poligono
-*.otest/t_retangulo
-*.otest/t_circulo
+# ─────────────────────────────────────────────
+# Arquivos compilados
+# ─────────────────────────────────────────────
+
+# Object files
+*.o
+*.obj
+
+# Executável principal
 src/ted
+
+# Executáveis dos testes unitários
+test/t_lista
+test/t_fila
+test/t_poligono
+test/t_circulo
+test/t_retangulo
+test/t_linha
+test/t_texto
+test/t_formas
+test/t_processadorGEO
+test/t_processadorQRY
+test/t_svg
+test/t_main
+
+# Bibliotecas estáticas/dinâmicas
+*.a
+*.so
+*.dylib
+*.dll
+
+# Debug e crash
+*.dSYM/
+core
+core.*
+vgcore.*
+
+# ─────────────────────────────────────────────
+# Saídas geradas pelo programa
+# ─────────────────────────────────────────────
+
+# Pasta de saída inteira (mantém a pasta no git, ignora os SVGs/TXTs)
+saida/*.svg
+saida/*.txt
+
+# Saídas de testes ad-hoc
+saida_*/
+saida_novo/
+
+# ─────────────────────────────────────────────
+# Editores e IDEs
+# ─────────────────────────────────────────────
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# CLion / IntelliJ
+.idea/
+cmake-build-*/
+
+# Vim
+*.swp
+*.swo
+*~
+
+# Emacs
+\#*\#
+.\#*
+
+# ─────────────────────────────────────────────
+# Sistema operacional
+# ─────────────────────────────────────────────
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Desktop.ini
+ehthumbs.db
+$RECYCLE.BIN/
+
+# Linux
+.directory
+.Trash-*
+
+# ─────────────────────────────────────────────
+# Ferramentas de análise
+# ─────────────────────────────────────────────
+
+# Sanitizers / coverage
+*.gcda
+*.gcno
+*.gcov
+coverage.info
+coverage/
+
+# Cachegrind / valgrind
+callgrind.out.*
+massif.out.*
+cachegrind.out.*
+
+# ─────────────────────────────────────────────
+# Diversos
+# ─────────────────────────────────────────────
+
+# Logs e backups
+*.log
+*.bak
+*.tmp
+*.old
+
+# Arquivos compactados (geralmente não vão para o repo)
+*.zip
+*.tar
+*.tar.gz
+*.tgz
