@@ -29,22 +29,6 @@ make clean
 ./src/ted -f arq.geo -o dir_saida [-e dir_entrada] [-q arq.qry]
 ```
 
-| Flag | Obrigatório | Descrição |
-|------|-------------|-----------|
-| `-e path` | Não | Diretório-base de entrada (BED). Default: `.` |
-| `-f arq.geo` | **Sim** | Arquivo com a descrição das formas |
-| `-o path` | **Sim** | Diretório-base de saída (BSD) |
-| `-q arq.qry` | Não | Arquivo de consultas |
-
-### Arquivos produzidos
-
-| Entrada | Saída |
-|---------|-------|
-| Só `-f arq.geo` | `arq.svg` |
-| `-f arq.geo -q arqcons.qry` | `arq.svg`, `arq-arqcons.svg`, `arq-arqcons.txt` |
-
----
-
 ## Comandos suportados
 
 ### Arquivo `.geo` (descrição das formas)
@@ -68,36 +52,6 @@ make clean
 | `sel` | `x y w h` | Seleciona figuras inteiramente dentro da região |
 | `dels` | — | Remove do banco as figuras selecionadas |
 | `mcs` | `dx dy corb corp` | Translada e recolore as selecionadas |
-
----
-
-## Estrutura do projeto
-1_trabalho/
-├── Makefile
-├── README.md
-├── Unity/                # Framework de teste (3rd party)
-├── src/                  # Código-fonte
-│   ├── lista.{h,c}       # TAD Lista (dinâmica, duplo encadeamento)
-│   ├── fila.{h,c}        # TAD Fila (estática, circular)
-│   ├── circulo.{h,c}     # Forma: círculo
-│   ├── retangulo.{h,c}   # Forma: retângulo
-│   ├── linha.{h,c}       # Forma: linha (com stroke-width adaptativo)
-│   ├── texto.{h,c}       # Forma: texto
-│   ├── formas.{h,c}      # Banco de formas + lista de selecionadas
-│   ├── poligono.{h,c}    # Polígonos (filas de coordenadas)
-│   ├── svg.{h,c}         # Geração de SVG
-│   ├── processadorGEO.{h,c}  # Parser do .geo
-│   ├── processadorQRY.{h,c}  # Parser do .qry
-│   ├── args.{h,c}        # Parsing dos argumentos de CLI
-│   ├── main.{h,c}        # Entry point (int main)
-│   └── ted               # Executável (gerado pelo make)
-├── test/                 # Testes unitários (Unity)
-│   ├── t_lista.c
-│   ├── t_fila.c
-│   ├── ... (12 arquivos no total)
-│   └── t_main.c
-├── testes/t1/            # Casos de teste fornecidos pelo professor
-└── saida/                # Saídas geradas
 
 ---
 
